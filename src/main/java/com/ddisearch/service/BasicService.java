@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface BasicService {
-
     String handleSearch(String drugA, String drugB);
+    String batchInsertDrugInfo();
+    String selectDrugInfoByName(String name);
 }

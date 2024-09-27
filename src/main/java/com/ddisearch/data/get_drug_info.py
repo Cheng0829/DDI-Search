@@ -8,7 +8,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 
 class drug:
-    # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述
+    # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述、相关药物
     def __init__(self, orderId, drugbankId='', name='', category='', chemicalFormula='', description='', relatedDrugs=''):
         self.orderId = orderId
         self.drugbankId = drugbankId

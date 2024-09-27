@@ -27,9 +27,24 @@ public class BasicController {
     // http://127.0.0.1:8080/search/111&222
     @GetMapping("/search/{drugA}&{drugB}")
     @ResponseBody
-    public String processInput(@PathVariable String drugA, @PathVariable String drugB) {
+    public String handleSearch(@PathVariable String drugA, @PathVariable String drugB) {
         return basicService.handleSearch(drugA, drugB);
     }
+
+    // http://127.0.0.1:8080/search/insert
+    @GetMapping("/search/insert")
+    @ResponseBody
+    public String batchInsertDrugInfo() {
+        return basicService.batchInsertDrugInfo();
+    }
+
+    @GetMapping("/search/select/{name}")
+    @ResponseBody
+    public String selectDrugInfoByName(@PathVariable String name) {
+        return basicService.selectDrugInfoByName(name);
+    }
+
+
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")

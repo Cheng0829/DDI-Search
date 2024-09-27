@@ -1,22 +1,26 @@
 # -*- coding: utf-8 -*-
 # @author  : Junkai Cheng
 # @time    : 2024/9/27 18:09
-
 class drug:
-    # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述
-    def __init__(self, order, drugbankId='', name='', category='', chemicalFormula='', description=''):
-        self.order = order
+    # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述、相关药物
+    def __init__(self, orderId, drugbankId='', name='', category='', chemicalFormula='', description='', relatedDrugs=''):
+        self.orderId = orderId
         self.drugbankId = drugbankId
         self.name = name
         self.category = category
         self.chemicalFormula = chemicalFormula
         self.description = description
+        """
+        ********************************************************
+        """
+        self.relatedDrugs = relatedDrugs
 
 class ddi:
-    def __init__(self, drugAName, drugBName, ddiType='', weight=0):
-        self.drugAName = drugAName
-        self.drugBName = drugBName
+    def __init__(self, drugA, drugB, ddiType='', description='', weight=0):
+        self.drugA = drugA
+        self.drugB = drugB
         self.ddiType = ddiType
+        self.description = description
         self.weight = weight
 
 # 读取txt文本中ddi数据

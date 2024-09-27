@@ -20,25 +20,34 @@ public class BasicServiceImpl implements BasicService {
     @Autowired
     private DrugInfoMapper drugInfoMapper;
 
-    public void singleInsertDrugInfo(){
+    public String singleInsertDrugInfo(){
         ArrayList<DrugInfo> drugInfos = JsonReader();
+        if (drugInfos == null) {
+            return "暂无数据";
+        }
         DrugInfo drugInfo = drugInfos.get(0);
         drugInfoMapper.singleInsertDrugInfo(drugInfo);
+        return drugInfos.toString();
     }
 
-    public void batchInsertDrugInfo(){
+    public String batchInsertDrugInfo(){
         ArrayList<DrugInfo> drugInfos = JsonReader();
+        if (drugInfos == null) {
+            return "暂无数据";
+        }
         drugInfoMapper.batchInsertDrugInfo(drugInfos);
+        return drugInfos.toString();
     }
 
-    public DrugInfo singleSelectDrugInfoByName(String name){
-        return drugInfoMapper.selectDrugInfoByName(name);
+    public String selectDrugInfoByName(String name){
+        DrugInfo drugInfo = drugInfoMapper.selectDrugInfoByName(name);
+        if (drugInfo == null) {
+            return "暂无数据";
+        }
+        return drugInfo.toString();
     }
 
     public String handleSearch(String drugA, String drugB) {
-//        singleInsertDrugInfo();
-//        batchInsertDrugInfo();
-        DrugInfo drugAInfo = singleSelectDrugInfoByName("Verteporfin");
 
         // drugA的不为空判断逻辑由前端控制
         if(drugB.isEmpty()) {
@@ -50,24 +59,17 @@ public class BasicServiceImpl implements BasicService {
 
     // 查找单个药物
     public String singleDrugSearch(String drugA) {
-        String drugAInfo = drugInfoSearch(drugA);
-        return "cjk";
+        return selectDrugInfoByName(drugA);
     }
 
     // 查找两个药物
     public String twoDrugSearch(String drugA, String drugB) {
-        String drugAInfo = drugInfoSearch(drugA);
-        String drugBInfo = drugInfoSearch(drugB);
+//        DrugInfo drugAInfo = selectDrugInfoByName(drugA);
+//        DrugInfo drugBInfo = selectDrugInfoByName(drugB);
         String ddiInfo = ddiSearch(drugA, drugB);
         return "cjk";
     }
 
-    // 查找药物信息
-    public String drugInfoSearch(String drugName) {
-        // 在drug_info_1710_crawl.json中通过药物英文名可以找到对应的drug信息
-        String drugInfo = "cjk";
-        return drugInfo;
-    }
 
     // 查找两个药物之间的多种副作用
     public String ddiSearch(String drugA, String drugB) {

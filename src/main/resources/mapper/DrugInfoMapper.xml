@@ -16,13 +16,8 @@
         </foreach>
     </insert>
 
-    <select id="assasasaSelectDrugInfo" resultType="Integer">
-        select Count(*) from test1_drugs
-    </select>
-
     <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.DrugInfo">
-        --         SELECT * FROM test1_drugs WHERE name = #{name} -- 可能有重复数据
-        SELECT DISTINCT order_id, drugbank_id, name, category, chemical_formula, description, related_drugs FROM test1_drugs WHERE name = #{name}
+        SELECT * FROM test1_drugs WHERE name = #{name}
     </select>
 
 </mapper>
