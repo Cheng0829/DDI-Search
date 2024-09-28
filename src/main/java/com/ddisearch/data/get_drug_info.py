@@ -39,26 +39,26 @@ def crawlDrugbank(orderId, drugbankId):
     # soup = BeautifulSoup(hhhh(), 'html.parser')
 
     # 提取Drug Name
-    drugName = soup.find('dt', {'id': 'generic-name'}).find_next_sibling('dd').text.strip()
+    drugName = soup.find('dt', {'id': 'generic-name'}).find_next_sibling('dd').text.strip().replace("\n", " ")
 
     # # 提取DrugBank Accession Number
-    # drugbankId = soup.find('dt', {'id': 'drugbankId'}).find_next_sibling('dd').text.strip()
+    # drugbankId = soup.find('dt', {'id': 'drugbankId'}).find_next_sibling('dd').text.strip().replace("\n", " ")
 
     # 提取Background
-    description = soup.find('dt', {'id': 'background'}).find_next_sibling('dd').text.strip()
+    description = soup.find('dt', {'id': 'background'}).find_next_sibling('dd').text.strip().replace("\n", " ")
 
     # 提取Type
-    category = soup.find('dt', {'id': 'type'}).find_next_sibling('dd').text.strip()
+    category = soup.find('dt', {'id': 'type'}).find_next_sibling('dd').text.strip().replace("\n", " ")
 
     # 提取Chemical Formula
     if soup.find('dt', {'id': 'chemical-formula'}):
-        chemicalFormula = soup.find('dt', {'id': 'chemical-formula'}).find_next_sibling('dd').text.strip()
+        chemicalFormula = soup.find('dt', {'id': 'chemical-formula'}).find_next_sibling('dd').text.strip().replace("\n", " ")
     else:
         chemicalFormula = ''
 
     smiles = ''
     if soup.find('dt', {'id': 'smiles'}):
-        smiles = soup.find('dt', {'id': 'smiles'}).find_next_sibling('dd').text.strip()
+        smiles = soup.find('dt', {'id': 'smiles'}).find_next_sibling('dd').text.strip().replace("\n", " ")
     else:
         smiles= ''
 
@@ -82,23 +82,24 @@ def addressCrawlDrug():
     with open(r'D:\Java\code\DDI-Search\src\main\java\com\ddisearch\data\node2id.json', 'r', encoding='utf-8') as f:
         node2id = json.load(f)
 
-    # drugJson = {}
-    drugInfoList = [['orderId', 'drugbankId', 'name', 'category', 'chemicalFormula', 'smiles', 'description', 'relatedDrugs']]
-    for drugbankId in node2id:
-        drugInfo = crawlDrugbank(node2id[drugbankId], drugbankId)
-        drugInfoList.append(drugInfo)
-
-        print("{}, {}.\n".format(node2id[drugbankId], drugbankId), end='')
-        time.sleep(3)
-        # if(node2id[drugbankId]==3):
-        #     break
-        # break
+    # 将csv清空
     with open('./drugInfo_1710_crawl.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
+        writer.writerow(['orderId', 'drugbankId', 'name', 'category', 'chemicalFormula', 'smiles', 'description', 'relatedDrugs'])
 
-        # 写入表头和数据
-        for row in drugInfoList:
-            writer.writerow(row)
+    for drugbankId in node2id:
+        orderId = node2id[drugbankId]
+        if(orderId >= 0):
+            drugInfo = crawlDrugbank(orderId, drugbankId)
+
+            print("{}, {}.\n".format(node2id[drugbankId], drugbankId), end='')
+            time.sleep(3)
+            # if(orderId == 3):
+            #     break
+            # break
+            with open('./drugInfo_1710_crawl.csv', mode='a', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                writer.writerow(drugInfo)
 
 addressCrawlDrug()
 
