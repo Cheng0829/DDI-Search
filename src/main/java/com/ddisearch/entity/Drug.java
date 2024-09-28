@@ -1,15 +1,13 @@
 package com.ddisearch.entity;
 
-import java.util.ArrayList;
-
 /**
  * @author Junkai Cheng
  * @date 2024/9/27 18:10
  */
-public class DrugInfo {
+public class Drug {
 
     // 药物编号
-    private int orderId;
+    private String orderId;
 
     // 药物drugbank序列号
     private String drugbankId;
@@ -23,17 +21,20 @@ public class DrugInfo {
     // 药物分子式
     private String chemicalFormula;
 
+    // 药物SMILES序列
+    private String smiles;
+
     // 药物描述
     private String description;
 
     // 相关的药物
     private String relatedDrugs;
 
-    public int getOrder() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrder(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -69,6 +70,14 @@ public class DrugInfo {
         return chemicalFormula;
     }
 
+    public String getSmiles() {
+        return smiles;
+    }
+
+    public void setSmiles(String smiles) {
+        this.smiles = smiles;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -85,13 +94,28 @@ public class DrugInfo {
         this.relatedDrugs = relatedDrugs;
     }
 
-    public DrugInfo(int orderId, String drugbankId, String name, String category, String chemicalFormula, String description, String relatedDrugs) {
+    public Drug(String orderId, String drugbankId, String name, String category, String chemicalFormula, String smiles, String description, String relatedDrugs) {
         this.orderId = orderId;
         this.drugbankId = drugbankId;
         this.name = name;
         this.category = category;
         this.chemicalFormula = chemicalFormula;
+        this.smiles = smiles;
         this.description = description;
         this.relatedDrugs = relatedDrugs;
+    }
+
+    @Override
+    public String toString() {
+        return "Drug{<br>" +
+                "orderId: " + orderId + ",<br>" +
+                "drugbankId: " + drugbankId +  ",<br>" +
+                "name: " + name  + ",<br>" +
+                "category: " + category + ",<br>" +
+                "chemicalFormula: " + chemicalFormula + ",<br>" +
+                "smiles: " + smiles + ",<br>" +
+                "description: " + description + ",<br>" +
+                "relatedDrugs: " + relatedDrugs + ",<br>" +
+                "}";
     }
 }

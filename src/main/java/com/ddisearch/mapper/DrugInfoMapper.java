@@ -1,6 +1,6 @@
 package com.ddisearch.mapper;
 
-import com.ddisearch.entity.DrugInfo;
+import com.ddisearch.entity.Drug;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 @Mapper
 public interface DrugInfoMapper {
-    void singleInsertDrugInfo(DrugInfo drugInfos);
-    void batchInsertDrugInfo(ArrayList<DrugInfo> drugInfos);
-    DrugInfo selectDrugInfoByName(String name);
+    void singleInsertDrugInfo(Drug drugInfos);
+    void batchInsertDrugInfo(ArrayList<Drug> drugs);
+    Drug selectDrugInfoByName(String name);
 }
 

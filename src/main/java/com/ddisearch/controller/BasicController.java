@@ -25,26 +25,37 @@ public class BasicController {
     }
 
     // http://127.0.0.1:8080/search/111&222
-    @GetMapping("/search/{drugA}&{drugB}")
+    @GetMapping("/search/{drugAName}&{drugBName}")
     @ResponseBody
-    public String handleSearch(@PathVariable String drugA, @PathVariable String drugB) {
-        return basicService.handleSearch(drugA, drugB);
+    public String handleSearch(@PathVariable String drugAName, @PathVariable String drugBName) {
+        return basicService.handleSearch(drugAName, drugBName);
     }
 
-    // http://127.0.0.1:8080/search/insert
-    @GetMapping("/search/insert")
+    // http://127.0.0.1:8080/search/insert/drug
+    @GetMapping("/insert/drug")
     @ResponseBody
     public String batchInsertDrugInfo() {
         return basicService.batchInsertDrugInfo();
     }
 
-    @GetMapping("/search/select/{name}")
+    // http://127.0.0.1:8080/search/insert/ddi
+    @GetMapping("/insert/ddi")
     @ResponseBody
-    public String selectDrugInfoByName(@PathVariable String name) {
-        return basicService.selectDrugInfoByName(name);
+    public String batchInsertDDI() {
+        return basicService.batchInsertDDI();
     }
 
+    @GetMapping("/select/drug/{name}")
+    @ResponseBody
+    public String selectDrugInfoByName(@PathVariable String name) {
+        return basicService.singleDrugSearch(name);
+    }
 
+    @GetMapping("/select/ddi/{drugAName}&{drugBName}")
+    @ResponseBody
+    public String selectDrugInfoByName(@PathVariable String drugAName, @PathVariable String drugBName) {
+        return basicService.ddiSearch(drugAName, drugBName);
+    }
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")

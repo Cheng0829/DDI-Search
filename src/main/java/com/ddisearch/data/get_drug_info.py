@@ -2,23 +2,21 @@
 # @author  : Junkai Cheng
 # @time    : 2024/9/27 18:09
 
-import requests, json, random, time
+import requests, json, random, time, csv
 from bs4 import BeautifulSoup
 from rdkit import Chem
 from rdkit.Chem import Draw
 
-class drug:
+class drugInfo:
     # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述、相关药物
-    def __init__(self, orderId, drugbankId='', name='', category='', chemicalFormula='', description='', relatedDrugs=''):
+    def __init__(self, orderId, drugbankId='', name='', category='', chemicalFormula='', smiles='', description='', relatedDrugs=''):
         self.orderId = orderId
         self.drugbankId = drugbankId
         self.name = name
         self.category = category
         self.chemicalFormula = chemicalFormula
+        self.smiles = smiles
         self.description = description
-        """
-        ********************************************************
-        """
         self.relatedDrugs = relatedDrugs
 
 def crawlDrugbank(orderId, drugbankId):
@@ -58,11 +56,17 @@ def crawlDrugbank(orderId, drugbankId):
     else:
         chemicalFormula = ''
 
+    smiles = ''
+    if soup.find('dt', {'id': 'smiles'}):
+        smiles = soup.find('dt', {'id': 'smiles'}).find_next_sibling('dd').text.strip()
+    else:
+        smiles= ''
+
     relatedDrugs = ['DrugA', 'DrugB', 'DrugC']
     relatedDrugs = str(relatedDrugs)
 
-    return drug(orderId=orderId, drugbankId=drugbankId, name=drugName, category=category,
-                chemicalFormula=chemicalFormula, description=description, relatedDrugs=relatedDrugs)
+    return [orderId, drugbankId, drugName, category, chemicalFormula, smiles, description, relatedDrugs]
+    # return drugInfo(orderId=orderId, drugbankId=drugbankId, name=drugName, category=category, chemicalFormula=chemicalFormula, smiles=smiles, description=description, relatedDrugs=relatedDrugs)
 
 def FromSmilesToImage(drugSmiles, drugName):
     # 从SMILES创建分子对象
@@ -73,39 +77,28 @@ def FromSmilesToImage(drugSmiles, drugName):
     # 保存图像
     img.save("./drugImage/{}.png".format(drugName))
 
-def saveDrugToJson(drugJson, orderId, drugInfo, length):
-    drugJson[drugInfo.name] = {
-        "orderId": drugInfo.orderId,
-        "drugbankId": drugInfo.drugbankId,
-        "name": drugInfo.name,
-        "category": drugInfo.category,
-        "chemicalFormula": drugInfo.chemicalFormula,
-        "description": drugInfo.description,
-        "relatedDrugs": drugInfo.relatedDrugs
-    }
-    # 保存药物分子图
-    FromSmilesToImage(drugInfo.chemicalFormula, drugInfo.name)
-
-    if orderId == length - 1 or 1:
-        with open('drugInfo_1710_crawl.json', 'w', encoding='utf-8') as f:
-            f.write(json.dumps(drugJson, ensure_ascii=False))
-
 def addressCrawlDrug():
     # 从0到1709找到每个药物的DrugBank Accession Number，然后调用crawl_drugbank函数获取相关信息
     with open(r'D:\Java\code\DDI-Search\src\main\java\com\ddisearch\data\node2id.json', 'r', encoding='utf-8') as f:
         node2id = json.load(f)
 
-    drugJson = {}
+    # drugJson = {}
+    drugInfoList = [['orderId', 'drugbankId', 'name', 'category', 'chemicalFormula', 'smiles', 'description', 'relatedDrugs']]
     for drugbankId in node2id:
         drugInfo = crawlDrugbank(node2id[drugbankId], drugbankId)
-        saveDrugToJson(drugJson, node2id[drugbankId], drugInfo, len(node2id))
+        drugInfoList.append(drugInfo)
 
-        print("{},{} have beena crawled.\n".format(node2id[drugbankId], drugbankId), end='')
-        # time.sleep(3)
-        if(node2id[drugbankId]==3):
-            break
+        print("{}, {}.\n".format(node2id[drugbankId], drugbankId), end='')
+        time.sleep(3)
+        # if(node2id[drugbankId]==3):
+        #     break
         # break
-    # print(666)
+    with open('./drugInfo_1710_crawl.csv', mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        # 写入表头和数据
+        for row in drugInfoList:
+            writer.writerow(row)
 
 addressCrawlDrug()
 

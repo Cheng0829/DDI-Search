@@ -3,21 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ddisearch.mapper.DrugInfoMapper">
 
-    <insert id="singleInsertDrugInfo" parameterType="com.ddisearch.entity.DrugInfo">
-        INSERT INTO test1_drugs (order_id, drugbank_id, name, category, chemical_formula, description, related_drugs)
-        VALUES (#{orderId}, #{drugbankId}, #{name}, #{category}, #{chemicalFormula}, #{description}, #{relatedDrugs})
-    </insert>
-
     <insert id="batchInsertDrugInfo" parameterType="java.util.List">
-        INSERT INTO test1_drugs (order_id, drugbank_id, name, category, chemical_formula, description, related_drugs)
+        INSERT INTO test1_drugs (order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs)
         VALUES
         <foreach collection="list" item="drug" separator=",">
-            (#{drug.orderId}, #{drug.drugbankId}, #{drug.name}, #{drug.category}, #{drug.chemicalFormula}, #{drug.description}, #{drug.relatedDrugs})
+            (#{drug.orderId}, #{drug.drugbankId}, #{drug.name}, #{drug.category}, #{drug.chemicalFormula}, #{drug.smiles}, #{drug.description}, #{drug.relatedDrugs})
         </foreach>
     </insert>
 
-    <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.DrugInfo">
-        SELECT * FROM test1_drugs WHERE name = #{name}
+    <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.Drug">
+        SELECT order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs FROM test1_drugs WHERE name = #{name}
     </select>
 
 </mapper>

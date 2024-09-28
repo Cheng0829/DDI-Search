@@ -4,109 +4,164 @@ package com.ddisearch.service.impl;
  * @author Junkai Cheng
  * @date 2024/9/27 18:10
  */
-import com.ddisearch.entity.DrugInfo;
+import com.ddisearch.entity.DDI;
+import com.ddisearch.entity.Drug;
+import com.ddisearch.mapper.DDIMapper;
 import com.ddisearch.mapper.DrugInfoMapper;
 import com.ddisearch.service.BasicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.json.JSONObject;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.*;
+import org.apache.commons.csv.*;
+import java.io.*;
 
 @Service
 public class BasicServiceImpl implements BasicService {
 
     @Autowired
     private DrugInfoMapper drugInfoMapper;
-
-    public String singleInsertDrugInfo(){
-        ArrayList<DrugInfo> drugInfos = JsonReader();
-        if (drugInfos == null) {
-            return "暂无数据";
-        }
-        DrugInfo drugInfo = drugInfos.get(0);
-        drugInfoMapper.singleInsertDrugInfo(drugInfo);
-        return drugInfos.toString();
-    }
+    @Autowired
+    private DDIMapper ddiMapper;
 
     public String batchInsertDrugInfo(){
-        ArrayList<DrugInfo> drugInfos = JsonReader();
-        if (drugInfos == null) {
+        ArrayList<Drug> drugs = drugInfoCsvReader();
+        if (drugs == null) {
             return "暂无数据";
         }
-        drugInfoMapper.batchInsertDrugInfo(drugInfos);
-        return drugInfos.toString();
+        drugInfoMapper.batchInsertDrugInfo(drugs);
+
+        StringBuilder drugStrs = new StringBuilder();
+
+        for(Drug drug : drugs){
+            drugStrs.append(drug.toString()).append("<br>");
+        }
+        return drugStrs.toString();
     }
 
-    public String selectDrugInfoByName(String name){
-        DrugInfo drugInfo = drugInfoMapper.selectDrugInfoByName(name);
-        if (drugInfo == null) {
+    public Drug selectDrugInfoByName(String name){
+        Drug drug = drugInfoMapper.selectDrugInfoByName(name);
+        return drug;
+    }
+
+    public String batchInsertDDI(){
+        ArrayList<DDI> ddis = ddiCsvReader();
+        if (ddis == null) {
             return "暂无数据";
         }
-        return drugInfo.toString();
+        ddiMapper.batchInsertDDI(ddis);
+
+        StringBuilder ddiStrs = new StringBuilder();
+
+        for(DDI ddi : ddis){
+            ddiStrs.append(ddi.toString()).append("<br>");
+        }
+        return ddiStrs.toString();
     }
 
-    public String handleSearch(String drugA, String drugB) {
+    public ArrayList<DDI> selectDDIByName(String drugAName, String drugBName){
+        // 可能同时存在多个ddi
+        ArrayList<DDI> ddis = ddiMapper.selectDDIByName(drugAName, drugBName);
+        // A和B没有先后次序之分
+        if(ddis.isEmpty()){
+            ddis = ddiMapper.selectDDIByName(drugBName, drugAName);
+        }
 
+        return ddis;
+    }
+
+    public String handleSearch(String drugAName, String drugBName) {
         // drugA的不为空判断逻辑由前端控制
-        if(drugB.isEmpty()) {
-            return singleDrugSearch(drugA);
+        if(drugBName.isEmpty()) {
+            return singleDrugSearch(drugAName);
         } else {
-            return twoDrugSearch(drugA, drugB);
+            return twoDrugSearch(drugAName, drugBName);
         }
     }
 
     // 查找单个药物
-    public String singleDrugSearch(String drugA) {
-        return selectDrugInfoByName(drugA);
+    public String singleDrugSearch(String drugAName) {
+        Drug drug = selectDrugInfoByName(drugAName);
+        if (drug == null) {
+            return "暂无数据";
+        }
+        return drug.toString();
     }
 
     // 查找两个药物
-    public String twoDrugSearch(String drugA, String drugB) {
-//        DrugInfo drugAInfo = selectDrugInfoByName(drugA);
-//        DrugInfo drugBInfo = selectDrugInfoByName(drugB);
-        String ddiInfo = ddiSearch(drugA, drugB);
-        return "cjk";
-    }
+    public String twoDrugSearch(String drugAName, String drugBName) {
+        Drug drugA = selectDrugInfoByName(drugAName);
+        Drug drugB = selectDrugInfoByName(drugBName);
+        ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
 
+        // ddi存在则两个药物必存在
+        if(ddis.isEmpty()){
+            return "暂无数据";
+        }
+
+        StringBuilder ddiStrs = new StringBuilder();
+
+        for(DDI ddi : ddis){
+            ddiStrs.append(ddi.toString()).append("<br>");
+        }
+        return drugA.toString() + "<br>" + drugB.toString() + "<br>" + ddiStrs.toString();
+    }
 
     // 查找两个药物之间的多种副作用
-    public String ddiSearch(String drugA, String drugB) {
-        return "cjk";
+    public String ddiSearch(String drugAName, String drugBName) {
+        ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
+        StringBuilder ddiStrs = new StringBuilder();
+        for(DDI ddi : ddis){
+            ddiStrs.append(ddi.toString()).append("<br>");
+        }
+        return ddiStrs.toString();
     }
 
-    public static ArrayList<DrugInfo> JsonReader() {
-        try {
-            // 从文件读取字符串
-            String content = new String(Files.readAllBytes(Paths.get("D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\drugInfo_1710_crawl.json")));
+    public static ArrayList<Drug> drugInfoCsvReader() {
 
-            // 将字符串转换为JSONObject
-            JSONObject jsonObject = new JSONObject(content);
+        try (Reader reader = new FileReader("D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\drugInfo_1710_crawl.csv");
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
 
-            ArrayList<DrugInfo> drugInfos = new ArrayList<>();
-            // 遍历JSONObject中的每一个键（即每个药物的名称）
-            for (String drugName : jsonObject.keySet()) {
-                // 获取当前药物的对象
-                JSONObject drug = jsonObject.getJSONObject(drugName);
-                // 从药物对象中获取各个字段的值
-                int orderId = drug.getInt("orderId");
-                String drugbankId = drug.getString("drugbankId");
-                String name = drug.getString("name");
-                String category = drug.getString("category");
-                String chemicalFormula = drug.getString("chemicalFormula");
-                String description = drug.getString("description");
-                String relatedDrugs = drug.getString("relatedDrugs");
+            ArrayList<Drug> drugs = new ArrayList<>();
+            for (CSVRecord csvRecord : csvParser) {
+                // 获取每一列的数据
+                String orderId = csvRecord.get("orderId");
+                String drugbankId = csvRecord.get("drugbankId");
+                String name = csvRecord.get("name");
+                String category = csvRecord.get("category");
+                String chemicalFormula = csvRecord.get("chemicalFormula");
+                String smiles = csvRecord.get("smiles");
+                String description = csvRecord.get("description");
+                String relatedDrugs = csvRecord.get("relatedDrugs");
 
-                // 把json数据赋给DrugInfo对象
-                DrugInfo drugInfo = new DrugInfo(orderId, drugbankId, name, category, chemicalFormula, description, relatedDrugs);
-                drugInfos.add(drugInfo);
+                Drug drug = new Drug(orderId, drugbankId, name, category, chemicalFormula, smiles, description, relatedDrugs);
+                drugs.add(drug);
             }
-            return drugInfos;
-        } catch (Exception e) {
+            return drugs;
+        } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
+    public static ArrayList<DDI> ddiCsvReader() {
 
+        try (Reader reader = new FileReader("D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\ddi.csv");
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
+
+            ArrayList<DDI> ddis = new ArrayList<>();
+            for (CSVRecord csvRecord : csvParser) {
+                // 获取每一列的数据
+                String drugA = csvRecord.get("drugA");
+                String drugB = csvRecord.get("drugB");
+                String ddiType = csvRecord.get("ddiType");
+                String description = csvRecord.get("description");
+                float confidence = Float.parseFloat(csvRecord.get("confidence"));
+                DDI ddi = new DDI(drugA, drugB, ddiType, description, confidence);
+                ddis.add(ddi);
+            }
+            return ddis;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

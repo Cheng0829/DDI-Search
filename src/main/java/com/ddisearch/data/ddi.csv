@@ -1,0 +1,8 @@
+drugA,drugB,ddiType,description,confidence
+Trioxsalen,Verteporfin,腹泻1,"腹泻描述1",0.09
+Trioxsalen,Verteporfin,腹泻2,"腹泻描述2",0.09
+Trioxsalen,Aminolevulinic acid,腹泻1,"腹泻描述1",0.22
+Trioxsalen,Titanium dioxide,腹泻1,"腹泻描述1",0.966
+Verteporfin,Aminolevulinic acid,腹泻1,"腹泻描述1",1
+Verteporfin,Titanium dioxide,腹泻1,"腹泻描述1",1.0
+Aminolevulinic acid,Titanium dioxide,腹泻1,"腹泻描述1",0
