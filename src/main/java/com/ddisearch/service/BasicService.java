@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface BasicService {
-    String handleSearch(String drugA, String drugB);
+    Map<String, Object> handleSearch(String drugAName, String drugBName);
     String batchInsertDrugInfo();
     String batchInsertDDI();
-
-    String singleDrugSearch(String drugA);
-    String ddiSearch(String drugAName, String drugBName);
 }

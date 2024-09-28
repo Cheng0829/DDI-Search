@@ -4,10 +4,16 @@ package com.ddisearch.controller;
  * @author Junkai Cheng
  * @date 2024/9/27 18:10
  */
+import com.ddisearch.entity.DDI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.ddisearch.service.BasicService;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
@@ -25,11 +31,13 @@ public class BasicController {
     }
 
     // http://127.0.0.1:8080/search/111&222
+    // 返回json格式数据
     @GetMapping("/search/{drugAName}&{drugBName}")
     @ResponseBody
-    public String handleSearch(@PathVariable String drugAName, @PathVariable String drugBName) {
+    public Map<String, Object> handleSearchJson(@PathVariable String drugAName, @PathVariable String drugBName) {
         return basicService.handleSearch(drugAName, drugBName);
     }
+
 
     // http://127.0.0.1:8080/search/insert/drug
     @GetMapping("/insert/drug")
@@ -43,18 +51,6 @@ public class BasicController {
     @ResponseBody
     public String batchInsertDDI() {
         return basicService.batchInsertDDI();
-    }
-
-    @GetMapping("/select/drug/{name}")
-    @ResponseBody
-    public String selectDrugInfoByName(@PathVariable String name) {
-        return basicService.singleDrugSearch(name);
-    }
-
-    @GetMapping("/select/ddi/{drugAName}&{drugBName}")
-    @ResponseBody
-    public String selectDrugInfoByName(@PathVariable String drugAName, @PathVariable String drugBName) {
-        return basicService.ddiSearch(drugAName, drugBName);
     }
 
     @GetMapping("/")

@@ -38,11 +38,6 @@ public class BasicServiceImpl implements BasicService {
         return drugStrs.toString();
     }
 
-    public Drug selectDrugInfoByName(String name){
-        Drug drug = drugInfoMapper.selectDrugInfoByName(name);
-        return drug;
-    }
-
     public String batchInsertDDI(){
         ArrayList<DDI> ddis = ddiCsvReader();
         if (ddis == null) {
@@ -58,6 +53,11 @@ public class BasicServiceImpl implements BasicService {
         return ddiStrs.toString();
     }
 
+    public Drug selectDrugInfoByName(String name){
+        Drug drug = drugInfoMapper.selectDrugInfoByName(name);
+        return drug;
+    }
+
     public ArrayList<DDI> selectDDIByName(String drugAName, String drugBName){
         // 可能同时存在多个ddi
         ArrayList<DDI> ddis = ddiMapper.selectDDIByName(drugAName, drugBName);
@@ -69,7 +69,7 @@ public class BasicServiceImpl implements BasicService {
         return ddis;
     }
 
-    public String handleSearch(String drugAName, String drugBName) {
+    public Map<String, Object> handleSearch(String drugAName, String drugBName) {
         // drugA的不为空判断逻辑由前端控制
         if(drugBName.isEmpty()) {
             return singleDrugSearch(drugAName);
@@ -79,31 +79,65 @@ public class BasicServiceImpl implements BasicService {
     }
 
     // 查找单个药物
-    public String singleDrugSearch(String drugAName) {
+    public Map<String, Object> singleDrugSearch(String drugAName) {
         Drug drug = selectDrugInfoByName(drugAName);
-        if (drug == null) {
-            return "暂无数据";
-        }
-        return drug.toString();
+        Map<String, Object> DrugResultList = new HashMap<>();
+        DrugResultList.put("orderId", drug.getOrderId());
+        DrugResultList.put("drugbankId", drug.getDrugbankId());
+        DrugResultList.put("name", drug.getName());
+        DrugResultList.put("category", drug.getCategory());
+        DrugResultList.put("chemicalFormula", drug.getChemicalFormula());
+        DrugResultList.put("smiles", drug.getSmiles());
+        DrugResultList.put("description", drug.getDescription());
+        DrugResultList.put("relatedDrugs", drug.getRelatedDrugs());
+        return DrugResultList;//.toString();
     }
 
     // 查找两个药物
-    public String twoDrugSearch(String drugAName, String drugBName) {
+    public Map<String, Object> twoDrugSearch(String drugAName, String drugBName) {
         Drug drugA = selectDrugInfoByName(drugAName);
         Drug drugB = selectDrugInfoByName(drugBName);
         ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
 
-        // ddi存在则两个药物必存在
-        if(ddis.isEmpty()){
-            return "暂无数据";
-        }
+        Map<String, Object> drugAResult = new HashMap<>();
+        drugAResult.put("orderId", drugA.getOrderId());
+        drugAResult.put("drugbankId", drugA.getDrugbankId());
+        drugAResult.put("name", drugA.getName());
+        drugAResult.put("category", drugA.getCategory());
+        drugAResult.put("chemicalFormula", drugA.getChemicalFormula());
+        drugAResult.put("smiles", drugA.getSmiles());
+        drugAResult.put("description", drugA.getDescription());
+        drugAResult.put("relatedDrugs", drugA.getRelatedDrugs());
 
-        StringBuilder ddiStrs = new StringBuilder();
+        Map<String, Object> drugBResult = new HashMap<>();
+        drugBResult.put("orderId", drugB.getOrderId());
+        drugBResult.put("drugbankId", drugB.getDrugbankId());
+        drugBResult.put("name", drugB.getName());
+        drugBResult.put("category", drugB.getCategory());
+        drugBResult.put("chemicalFormula", drugB.getChemicalFormula());
+        drugBResult.put("smiles", drugB.getSmiles());
+        drugBResult.put("description", drugB.getDescription());
+        drugBResult.put("relatedDrugs", drugB.getRelatedDrugs());
+        /*
+        * {
+        * "type1":{description: "description1", confidence:"confidence"}
+        * }
+        * */
+
+        Map<String, Map> ddiResultList = new HashMap<>();
 
         for(DDI ddi : ddis){
-            ddiStrs.append(ddi.toString()).append("<br>");
+            ddiResultList.put(ddi.getDdiType(), new HashMap<String, String>(){{
+                put("description", ddi.getDescription());
+                put("confidence", String.valueOf(ddi.getConfidence()));
+            }});
         }
-        return drugA.toString() + "<br>" + drugB.toString() + "<br>" + ddiStrs.toString();
+        return new HashMap<String, Object>(){{
+                put("drugA", drugAResult);
+                put("drugB", drugBResult);
+                put("ddi", ddiResultList);
+            }};
+
     }
 
     // 查找两个药物之间的多种副作用
