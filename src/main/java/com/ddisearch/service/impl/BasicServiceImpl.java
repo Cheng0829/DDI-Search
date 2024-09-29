@@ -81,6 +81,12 @@ public class BasicServiceImpl implements BasicService {
     // 查找单个药物
     public Map<String, Object> singleDrugSearch(String drugAName) {
         Drug drug = selectDrugInfoByName(drugAName);
+        if(drug == null) {
+            return new HashMap<String, Object>(){{
+                put("drugA", null);
+            }};
+        }
+
         Map<String, Object> DrugResultList = new HashMap<>();
         DrugResultList.put("orderId", drug.getOrderId());
         DrugResultList.put("drugbankId", drug.getDrugbankId());
@@ -90,42 +96,55 @@ public class BasicServiceImpl implements BasicService {
         DrugResultList.put("smiles", drug.getSmiles());
         DrugResultList.put("description", drug.getDescription());
         DrugResultList.put("relatedDrugs", drug.getRelatedDrugs());
-        return DrugResultList;//.toString();
+//        return DrugResultList;//.toString();
+        return new HashMap<String, Object>(){{
+            put("drugA", DrugResultList);
+        }};
     }
 
     // 查找两个药物
     public Map<String, Object> twoDrugSearch(String drugAName, String drugBName) {
-        Drug drugA = selectDrugInfoByName(drugAName);
-        Drug drugB = selectDrugInfoByName(drugBName);
-        ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
-
+        Map<String, Object> nullResult = new HashMap<>();
         Map<String, Object> drugAResult = new HashMap<>();
-        drugAResult.put("orderId", drugA.getOrderId());
-        drugAResult.put("drugbankId", drugA.getDrugbankId());
-        drugAResult.put("name", drugA.getName());
-        drugAResult.put("category", drugA.getCategory());
-        drugAResult.put("chemicalFormula", drugA.getChemicalFormula());
-        drugAResult.put("smiles", drugA.getSmiles());
-        drugAResult.put("description", drugA.getDescription());
-        drugAResult.put("relatedDrugs", drugA.getRelatedDrugs());
-
         Map<String, Object> drugBResult = new HashMap<>();
-        drugBResult.put("orderId", drugB.getOrderId());
-        drugBResult.put("drugbankId", drugB.getDrugbankId());
-        drugBResult.put("name", drugB.getName());
-        drugBResult.put("category", drugB.getCategory());
-        drugBResult.put("chemicalFormula", drugB.getChemicalFormula());
-        drugBResult.put("smiles", drugB.getSmiles());
-        drugBResult.put("description", drugB.getDescription());
-        drugBResult.put("relatedDrugs", drugB.getRelatedDrugs());
-        /*
-        * {
-        * "type1":{description: "description1", confidence:"confidence"}
-        * }
-        * */
-
         Map<String, Map> ddiResultList = new HashMap<>();
 
+        Drug drugA = selectDrugInfoByName(drugAName);
+        if(drugA == null){
+            nullResult.put("drugA", null);
+        }
+        else{
+            drugAResult.put("orderId", drugA.getOrderId());
+            drugAResult.put("drugbankId", drugA.getDrugbankId());
+            drugAResult.put("name", drugA.getName());
+            drugAResult.put("category", drugA.getCategory());
+            drugAResult.put("chemicalFormula", drugA.getChemicalFormula());
+            drugAResult.put("smiles", drugA.getSmiles());
+            drugAResult.put("description", drugA.getDescription());
+            drugAResult.put("relatedDrugs", drugA.getRelatedDrugs());
+            nullResult.put("drugA", drugAResult);
+        }
+
+        Drug drugB = selectDrugInfoByName(drugBName);
+        if(drugB == null){
+            nullResult.put("drugB", null);
+        }
+        else{
+            drugBResult.put("orderId", drugB.getOrderId());
+            drugBResult.put("drugbankId", drugB.getDrugbankId());
+            drugBResult.put("name", drugB.getName());
+            drugBResult.put("category", drugB.getCategory());
+            drugBResult.put("chemicalFormula", drugB.getChemicalFormula());
+            drugBResult.put("smiles", drugB.getSmiles());
+            drugBResult.put("description", drugB.getDescription());
+            drugBResult.put("relatedDrugs", drugB.getRelatedDrugs());
+            nullResult.put("drugB", drugBResult);
+        }
+        if(drugA == null || drugB == null){
+            return nullResult;
+        }
+
+        ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
         for(DDI ddi : ddis){
             ddiResultList.put(ddi.getDdiType(), new HashMap<String, String>(){{
                 put("description", ddi.getDescription());
@@ -133,10 +152,10 @@ public class BasicServiceImpl implements BasicService {
             }});
         }
         return new HashMap<String, Object>(){{
-                put("drugA", drugAResult);
-                put("drugB", drugBResult);
-                put("ddi", ddiResultList);
-            }};
+            put("drugA", drugAResult);
+            put("drugB", drugBResult);
+            put("ddi", ddiResultList);
+        }};
 
     }
 
