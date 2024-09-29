@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # @author  : Junkai Cheng
 # @time    : 2024/9/27 18:09
+import json, csv
 class drug:
     # drug信息包括：药物编号、药物drugbank序列号、药物名、类别、化学分子式、描述、相关药物
     def __init__(self, orderId, drugbankId='', name='', category='', chemicalFormula='', smiles='', description='', relatedDrugs=''):
@@ -35,3 +36,15 @@ def c():
 # 保存
 def d():
     pass
+
+def read():
+    with open('./DrugName_DrugBankId.json', mode='r', newline='', encoding='utf-8') as f:
+        DrugName_DrugBankId = json.load(f)
+    with open('ddi_DB_sampling.txt', mode='r', newline='', encoding='utf-8') as f:
+        ddi_DB = f.readlines()
+    with open('ddi_name_sampling.txt', mode='r', newline='', encoding='utf-8') as f:
+        ddi_name = f.readlines()
+    for i in range(len(ddi_DB)):
+        drugAId = ddi_DB[i].strip().split('\t')[0]
+        drugBName = DrugName_DrugBankId[ddi_DB[i].strip().split('\t')[1]]
+        url = "https://go.drugbank.com/drugs/{}/drug_interactions.json?search%5Bvalue={}".format(drugAId, drugBName)

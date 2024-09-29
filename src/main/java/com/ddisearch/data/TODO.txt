@@ -1,0 +1,11 @@
+
+
+1. drug爬取的信息需要修改：分类不能全是小分子；relatedDrugs需要遍历整个drugbank-ddi数据集
+2. 前端页面的药物信息部分需要展示药物图片
+3. 目前drugbank-ddi数据集中的ddi-type只有序号，不知道具体是什么
+    3-1：1-86逐个猜测、测试？
+    3-2：自己爬虫生成
+
+
+3-1：
+1 	Trioxsalen may increase the photosensitizing activities of Verteporfin.
