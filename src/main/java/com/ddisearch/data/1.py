@@ -63,15 +63,35 @@ def ddi_from_DB_to_name():
     with open('ddi_DB.txt', mode='r', newline='', encoding='utf-8') as f:
         ddi_DB = f.readlines()
     with open('ddi_name.txt', mode='w', newline='', encoding='utf-8') as f:
-        f.write("")
+        f.write("drug1\tdrug2\tLabel\n")
     for i in range(1, len(ddi_DB)):
         ddi_replace = ddi_DB[i].strip().split('\t')
-        print(ddi_replace)
-        print(DrugName_DrugBankId[ddi_replace[0]] + '\t' + DrugName_DrugBankId[ddi_replace[1]] + '\t' + ddi_replace[2] + '\n')
-        pass
+        # print(ddi_replace)
+        if(i % 1000 == 0):
+            print(i, end=', ')
         with open('ddi_name.txt', mode='a', newline='', encoding='utf-8') as f:
-            f.write(ddi_replace.join('\t') + '\n')
+            f.write(DrugName_DrugBankId[ddi_replace[0]] + '\t' + DrugName_DrugBankId[ddi_replace[1]] + '\t' + ddi_replace[2] + '\n')
 
 # ddi_from_DB_to_name()
 
+def read():
+    with open('./DrugName_DrugBankId.json', mode='r', newline='', encoding='utf-8') as f:
+        DrugName_DrugBankId = json.load(f)
+    with open('ddi_DB_sampling.txt', mode='r', newline='', encoding='utf-8') as f:
+        ddi_DB = f.readlines()
+    # with open('ddi_DB_sampling_add_description.txt', mode='w', newline='', encoding='utf-8') as f:
+    #     f.write("drug1\tdrug2\tLabel\tdescription\n")
+    for i in range(94, len(ddi_DB)):
+        drugAId = ddi_DB[i].strip().split('\t')[0]
+        drugBName = DrugName_DrugBankId[ddi_DB[i].strip().split('\t')[1]]
+        url = "https://go.drugbank.com/drugs/{}/drug_interactions.json?search%5Bvalue={}".format(drugAId, drugBName)
+        response = requests.get(url)
 
+        data = response.json()['data']
+        description = data[0][1]
+        with open('ddi_DB_sampling_add_description.txt', mode='a', newline='', encoding='utf-8') as f:
+            f.write(ddi_DB[i].strip().split('\t')[0] + '\t' + ddi_DB[i].strip().split('\t')[1] + '\t' + ddi_DB[i].strip().split('\t')[2] + '\t' + description + '\n')
+        print(i, 'type=' + ddi_DB[i].strip().split('\t')[2] + ': ', description)
+        time.sleep(3)
+        # break
+# read()

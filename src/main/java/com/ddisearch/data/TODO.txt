@@ -1,11 +1,10 @@
 
 
-1. drug爬取的信息需要修改：分类不能全是小分子；relatedDrugs需要遍历整个drugbank-ddi数据集
+1. drug爬取的信息需要修改：分类不能全是小分子；relatedDrugs需要遍历整个drugbank-ddi数据集：如果太多，只取前n个
 2. 前端页面的药物信息部分需要展示药物图片
 3. 目前drugbank-ddi数据集中的ddi-type只有序号，不知道具体是什么
     3-1：1-86逐个猜测、测试？
     3-2：自己爬虫生成
-
-
-3-1：
-1 	Trioxsalen may increase the photosensitizing activities of Verteporfin.
+    3-3：UI展示的confidence真实，但ddi-description直接调用DrugBank接口
+    result：经测试，drugbank-ddi数据集中的ddi-type并不统一，3-1失败，3-2工程量太大，故采用3-3（但不能完全依赖DrugBank接口，需开发mock数据，若接口故障则直接根据type调用对应description）
+4. 测试前端ui中，drugAB均存在，但DDI不存在，预留接口（LLM认为~）
