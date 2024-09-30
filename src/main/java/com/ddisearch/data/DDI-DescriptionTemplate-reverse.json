@@ -164,6 +164,9 @@
     "DrugAName may compete with drugBName for the same receptors or binding sites, thereby diminishing the antihypertensive activities of drugBName and making it less effective in controlling blood pressure.": [
         "55"
     ],
+    "When drugAName is used in conjunction with drugBName, its metabolic rate may be reduced, potentially leading to higher levels of the drug in the body.": [
+        "56"
+    ],
     "Co-administration of drugAName and drugBName should be approached with caution, as it poses a risk of elevating the patient's susceptibility to abnormal bleeding by altering platelet function or clotting factors.": [
         "57"
     ],

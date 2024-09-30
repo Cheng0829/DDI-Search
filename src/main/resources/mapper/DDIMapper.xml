@@ -4,7 +4,7 @@
 <mapper namespace="com.ddisearch.mapper.DDIMapper">
 
     <insert id="batchInsertDDI" parameterType="java.util.List">
-        INSERT INTO cjk.test1_ddis (drugA_name, drugB_name, ddi_type, description, confidence)
+        INSERT INTO cjk.ddi_info (drugA_name, drugB_name, ddi_type, description, confidence)
         VALUES
         <foreach collection="list" item="ddi" separator=",">
             (#{ddi.drugAName}, #{ddi.drugBName}, #{ddi.ddiType}, #{ddi.description}, #{ddi.confidence})
@@ -13,7 +13,7 @@
 
     <!-- 查询语句 -->
     <select id="selectDDIByName" parameterType="map" resultType="com.ddisearch.entity.DDI">
-        SELECT DISTINCT drugA_name, drugB_name, ddi_type, description, confidence FROM cjk.test1_ddis WHERE drugA_name = #{drugAName} AND drugB_name = #{drugBName}
+        SELECT DISTINCT drugA_name, drugB_name, ddi_type, description, confidence FROM cjk.ddi_info WHERE drugA_name = #{drugAName} AND drugB_name = #{drugBName}
     </select>
 
 <!--    <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.Drug">-->

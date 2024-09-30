@@ -54,6 +54,7 @@
     "53": "Combining drugAName with drugBName may lead to an increased inhibition of platelet function, which can elevate the risk and severity of bleeding and hemorrhage.",
     "54": "The risk or severity of ventricular arrhythmias and Cardiac Arrhythmia can be increased when drugAName is combined with drugBName.",
     "55": "DrugAName may compete with drugBName for the same receptors or binding sites, thereby diminishing the antihypertensive activities of drugBName and making it less effective in controlling blood pressure.",
+    "56": "When drugAName is used in conjunction with drugBName, its metabolic rate may be reduced, potentially leading to higher levels of the drug in the body.",
     "57": "Co-administration of drugAName and drugBName should be approached with caution, as it poses a risk of elevating the patient's susceptibility to abnormal bleeding by altering platelet function or clotting factors.",
     "58": "To minimize the risk of critical bleeding, a full-scale evaluation of the patient's health, with an emphasis on the cardiovascular system, is necessary prior to the concurrent prescription of drugAName and drugBName.",
     "59": "The co-administration of drugBName can alter the metabolic pathways of drugAName, leading to a decrease in the effectiveness of drugAName and potentially diminishing its therapeutic benefits.",

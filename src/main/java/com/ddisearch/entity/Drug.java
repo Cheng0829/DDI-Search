@@ -30,6 +30,19 @@ public class Drug {
     // 相关的药物
     private String relatedDrugs;
 
+    // 药效学
+    private String pharmacodynamics;
+
+    // 作用机制
+    private String actionMechanism;
+
+    // 蛋白质结合
+    private String proteinBinding;
+
+    // 代谢
+    private String metabolism;
+
+
     public String getOrderId() {
         return orderId;
     }
@@ -94,7 +107,39 @@ public class Drug {
         this.relatedDrugs = relatedDrugs;
     }
 
-    public Drug(String orderId, String drugbankId, String name, String category, String chemicalFormula, String smiles, String description, String relatedDrugs) {
+    public String getPharmacodynamics() {
+        return pharmacodynamics;
+    }
+
+    public void setPharmacodynamics(String pharmacodynamics) {
+        this.pharmacodynamics = pharmacodynamics;
+    }
+
+    public String getActionMechanism() {
+        return actionMechanism;
+    }
+
+    public void setActionMechanism(String actionMechanism) {
+        this.actionMechanism = actionMechanism;
+    }
+
+    public String getProteinBinding() {
+        return proteinBinding;
+    }
+
+    public void setProteinBinding(String proteinBinding) {
+        this.proteinBinding = proteinBinding;
+    }
+
+    public String getMetabolism() {
+        return metabolism;
+    }
+
+    public void setMetabolism(String metabolism) {
+        this.metabolism = metabolism;
+    }
+
+    public Drug(String orderId, String drugbankId, String name, String category, String chemicalFormula, String smiles, String description, String relatedDrugs, String pharmacodynamics, String actionMechanism, String proteinBinding, String metabolism) {
         this.orderId = orderId;
         this.drugbankId = drugbankId;
         this.name = name;
@@ -103,6 +148,10 @@ public class Drug {
         this.smiles = smiles;
         this.description = description;
         this.relatedDrugs = relatedDrugs;
+        this.pharmacodynamics = pharmacodynamics;
+        this.actionMechanism = actionMechanism;
+        this.proteinBinding = proteinBinding;
+        this.metabolism = metabolism;
     }
 
     @Override
@@ -116,6 +165,10 @@ public class Drug {
                 "smiles: " + smiles + ",<br>" +
                 "description: " + description + ",<br>" +
                 "relatedDrugs: " + relatedDrugs + ",<br>" +
+                "pharmacodynamics: " + pharmacodynamics + ",<br>" +
+                "actionMechanism: " + actionMechanism + ",<br>" +
+                "proteinBinding: " + proteinBinding + ",<br>" +
+                "metabolism: " + metabolism + "<br>" +
                 "}";
     }
 }

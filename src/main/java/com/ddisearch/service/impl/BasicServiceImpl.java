@@ -34,14 +34,27 @@ public class BasicServiceImpl implements BasicService {
         if (drugs == null) {
             return "暂无数据";
         }
-        drugInfoMapper.batchInsertDrugInfo(drugs);
-
-        StringBuilder drugStrs = new StringBuilder();
-
-        for(Drug drug : drugs){
-            drugStrs.append(drug.toString()).append("<br>");
+        int location = 0;
+        if(drugs.size() < 100) {
+            drugInfoMapper.batchInsertDrugInfo(drugs);
         }
-        return drugStrs.toString();
+        else{
+            for(int i = 0; i < drugs.size(); i += 100){
+                ArrayList<Drug> subList = new ArrayList<>(drugs.subList(i, Math.min(i + 100, drugs.size())));
+                drugInfoMapper.batchInsertDrugInfo(subList);
+//                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
+                location += 100;
+                System.out.println("已插入" + location + "条数据");
+            }
+        }
+
+
+//        StringBuilder drugStrs = new StringBuilder();
+//        for(Drug drug : drugs){
+//            drugStrs.append(drug.toString()).append("<br>");
+//        }
+//        return drugStrs.toString();
+        return "插入完成";
     }
 
     public String batchInsertDDI(){
@@ -49,14 +62,26 @@ public class BasicServiceImpl implements BasicService {
         if (ddis == null) {
             return "暂无数据";
         }
-        ddiMapper.batchInsertDDI(ddis);
-
-        StringBuilder ddiStrs = new StringBuilder();
-
-        for(DDI ddi : ddis){
-            ddiStrs.append(ddi.toString()).append("<br>");
+//        ddiMapper.batchInsertDDI(ddis);
+        int location = 0;
+        if(ddis.size() < 100) {
+            ddiMapper.batchInsertDDI(ddis);
         }
-        return ddiStrs.toString();
+        else{
+            for(int i = 0; i < ddis.size(); i += 100){
+                ArrayList<DDI> subList = new ArrayList<>(ddis.subList(i, Math.min(i + 100, ddis.size())));
+                ddiMapper.batchInsertDDI(subList);
+//                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
+                location += 100;
+                System.out.println("已插入" + location + "条数据");
+            }
+        }
+//        StringBuilder ddiStrs = new StringBuilder();
+//        for(DDI ddi : ddis){
+//            ddiStrs.append(ddi.toString()).append("<br>");
+//        }
+//        return ddiStrs.toString();
+        return "插入完成";
     }
 
     public Drug selectDrugInfoByName(String name){
@@ -128,6 +153,10 @@ public class BasicServiceImpl implements BasicService {
             drugAResult.put("smiles", drugA.getSmiles());
             drugAResult.put("description", drugA.getDescription());
             drugAResult.put("relatedDrugs", drugA.getRelatedDrugs());
+            drugAResult.put("pharmacodynamics", drugA.getPharmacodynamics());
+            drugAResult.put("actionMechanism", drugA.getActionMechanism());
+            drugAResult.put("proteinBinding", drugA.getProteinBinding());
+            drugAResult.put("metabolism", drugA.getMetabolism());
             nullResult.put("drugA", drugAResult);
         }
 
@@ -144,6 +173,10 @@ public class BasicServiceImpl implements BasicService {
             drugBResult.put("smiles", drugB.getSmiles());
             drugBResult.put("description", drugB.getDescription());
             drugBResult.put("relatedDrugs", drugB.getRelatedDrugs());
+            drugBResult.put("pharmacodynamics", drugB.getPharmacodynamics());
+            drugBResult.put("actionMechanism", drugB.getActionMechanism());
+            drugBResult.put("proteinBinding", drugB.getProteinBinding());
+            drugBResult.put("metabolism", drugB.getMetabolism());
             nullResult.put("drugB", drugBResult);
         }
         if(drugA == null || drugB == null){
@@ -173,7 +206,7 @@ public class BasicServiceImpl implements BasicService {
         String proxyHost = "127.0.0.1";
         int proxyPort = 7890;
 
-        if(n == 1){
+        if(n == 1 && 1==0){
             try {
                 // 使用 Jsoup 发送 HTTP GET 请求
                 Document document = Jsoup.connect(url)
@@ -294,8 +327,13 @@ public class BasicServiceImpl implements BasicService {
                 String smiles = csvRecord.get("smiles");
                 String description = csvRecord.get("description");
                 String relatedDrugs = csvRecord.get("relatedDrugs");
+                String pharmacodynamics = csvRecord.get("pharmacodynamics");
+                String actionMechanism = csvRecord.get("actionMechanism");
+                String proteinBinding = csvRecord.get("proteinBinding");
+                String metabolism = csvRecord.get("metabolism");
 
-                Drug drug = new Drug(orderId, drugbankId, name, category, chemicalFormula, smiles, description, relatedDrugs);
+
+                Drug drug = new Drug(orderId, drugbankId, name, category, chemicalFormula, smiles, description, relatedDrugs, pharmacodynamics, actionMechanism, proteinBinding, metabolism);
                 drugs.add(drug);
             }
             return drugs;

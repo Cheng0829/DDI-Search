@@ -52,14 +52,14 @@ public class BasicController {
         return basicService.handleSearch(drugAName, drugBName);
     }
 
-    // http://127.0.0.1:8080/search/insert/drug
+    // http://127.0.0.1:8080/insert/drug
     @GetMapping("/insert/drug")
     @ResponseBody
     public String batchInsertDrugInfo() {
         return basicService.batchInsertDrugInfo();
     }
 
-    // http://127.0.0.1:8080/search/insert/ddi
+    // http://127.0.0.1:8080/insert/ddi
     @GetMapping("/insert/ddi")
     @ResponseBody
     public String batchInsertDDI() {
