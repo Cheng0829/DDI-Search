@@ -5,6 +5,9 @@
 
 import requests, json, random, time, csv
 from bs4 import BeautifulSoup
+from rdkit import Chem
+from rdkit.Chem import Draw
+from collections import defaultdict
 
 def crawlDrugbank(drugbankId):
     url = "https://go.drugbank.com/drugs/" + drugbankId
@@ -95,3 +98,34 @@ def read():
         time.sleep(3)
         # break
 # read()
+
+def DrugBankId_DrugName():
+    with open('./DrugName_DrugBankId.json', mode='r', newline='', encoding='utf-8') as f:
+        DrugName_DrugBankId = json.load(f)
+    DrugBankId_DrugName = {}
+    for DrugBankId in DrugName_DrugBankId:
+        DrugBankId_DrugName[DrugName_DrugBankId[DrugBankId]] = DrugBankId
+    print(DrugBankId_DrugName)
+    with open('./DrugBankId_DrugName.json', mode='w', newline='', encoding='utf-8') as f:
+        json.dump(DrugBankId_DrugName, f, ensure_ascii=False)
+# DrugBankId_DrugName()
+
+def gaixie():
+    with open('./DDI-DescriptionTemplate.json', mode='r', newline='', encoding='utf-8') as f:
+        DDIDescriptionTemplate = json.load(f)
+
+    # 创建一个默认字典来存储value及其对应的key列表
+    value_to_keys = defaultdict(list)
+
+    # 遍历原始数据，构建value_to_keys映射
+    for key, value in DDIDescriptionTemplate.items():
+        value_to_keys[value].append(key)
+
+    # 创建新的字典，其中key是原始的value，value是key列表
+    new_data = {value: keys for value, keys in value_to_keys.items()}
+    print(new_data)
+    # 将新字典写入新的JSON文件
+    with open('DDI-DescriptionTemplate-reverse.json', 'w') as file:
+        json.dump(new_data, file, indent=4)
+
+gaixie()
