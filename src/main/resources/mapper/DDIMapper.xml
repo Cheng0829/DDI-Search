@@ -11,13 +11,14 @@
         </foreach>
     </insert>
 
-    <!-- 查询语句 -->
     <select id="selectDDIByName" parameterType="map" resultType="com.ddisearch.entity.DDI">
         SELECT DISTINCT drugA_name, drugB_name, ddi_type, description, confidence FROM cjk.ddi_info WHERE drugA_name = #{drugAName} AND drugB_name = #{drugBName}
     </select>
 
-<!--    <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.Drug">-->
-<!--        SELECT * FROM test1_drugs WHERE name = #{name}-->
-<!--    </select>-->
+    <select id="batchSelectDDI" parameterType="map" resultType="com.ddisearch.entity.batchDDIResult">
+        SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription FROM cjk.ddi_info
+        ORDER BY drugA_name, drugB_name
+        LIMIT #{limit} OFFSET #{offset};
+    </select>
 
 </mapper>

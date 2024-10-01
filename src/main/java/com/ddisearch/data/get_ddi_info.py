@@ -36,7 +36,7 @@ def write_ddi():
         drugA = ddi[0]
         drugB = ddi[1]
         ddi_type = ddi[2]
-        description = type_description[ddi_type]
+        description = type_description[ddi_type].replace('drugAName', drugA).replace('drugBName', drugB)
         with open('./ddi.csv', mode='a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow([drugA, drugB, ddi_type, description, round(random.random(), 2)])

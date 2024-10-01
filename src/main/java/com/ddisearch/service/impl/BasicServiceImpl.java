@@ -6,6 +6,7 @@ package com.ddisearch.service.impl;
  */
 import com.ddisearch.entity.DDI;
 import com.ddisearch.entity.Drug;
+import com.ddisearch.entity.batchDDIResult;
 import com.ddisearch.mapper.DDIMapper;
 import com.ddisearch.mapper.DrugInfoMapper;
 import com.ddisearch.service.BasicService;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.*;
 
+
+
 @Service
 public class BasicServiceImpl implements BasicService {
 
@@ -35,25 +38,19 @@ public class BasicServiceImpl implements BasicService {
             return "暂无数据";
         }
         int location = 0;
-        if(drugs.size() < 100) {
+        int n = 1000; // 性能限制：单次最大操作条数
+        if(drugs.size() < n) {
             drugInfoMapper.batchInsertDrugInfo(drugs);
         }
         else{
-            for(int i = 0; i < drugs.size(); i += 100){
+            for(int i = 0; i < drugs.size(); i += n){
                 ArrayList<Drug> subList = new ArrayList<>(drugs.subList(i, Math.min(i + 100, drugs.size())));
                 drugInfoMapper.batchInsertDrugInfo(subList);
 //                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
-                location += 100;
+                location += n;
                 System.out.println("已插入" + location + "条数据");
             }
         }
-
-
-//        StringBuilder drugStrs = new StringBuilder();
-//        for(Drug drug : drugs){
-//            drugStrs.append(drug.toString()).append("<br>");
-//        }
-//        return drugStrs.toString();
         return "插入完成";
     }
 
@@ -62,25 +59,21 @@ public class BasicServiceImpl implements BasicService {
         if (ddis == null) {
             return "暂无数据";
         }
-//        ddiMapper.batchInsertDDI(ddis);
         int location = 0;
-        if(ddis.size() < 100) {
+        int n = 0; // 性能限制：单次最大操作条数
+        if(ddis.size() < 1000) {
             ddiMapper.batchInsertDDI(ddis);
         }
         else{
-            for(int i = 0; i < ddis.size(); i += 100){
+            for(int i = 0; i < ddis.size(); i += n){
                 ArrayList<DDI> subList = new ArrayList<>(ddis.subList(i, Math.min(i + 100, ddis.size())));
+
                 ddiMapper.batchInsertDDI(subList);
 //                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
-                location += 100;
+                location += n;
                 System.out.println("已插入" + location + "条数据");
             }
         }
-//        StringBuilder ddiStrs = new StringBuilder();
-//        for(DDI ddi : ddis){
-//            ddiStrs.append(ddi.toString()).append("<br>");
-//        }
-//        return ddiStrs.toString();
         return "插入完成";
     }
 
@@ -98,6 +91,31 @@ public class BasicServiceImpl implements BasicService {
         }
 
         return ddis;
+    }
+
+    public ArrayList<Map<String, String>> batchSelectDDI(int index, int limit){
+        int offset = (index-1)*limit;
+        ArrayList<batchDDIResult> batchDDIs = ddiMapper.batchSelectDDI(offset, limit);
+        // batchDDIs: [[药物A1, 药物B1, DDI描述1], [药物A2, 药物B2, DDI描述2]...]
+        // result: [[drugAName: 药物A1, drugBName: 药物B1, ddiDescription: DDI描述1],[drugAName: 药物A2, drugAName: 药物B2, ddiDescription: DDI描述2]...]
+
+        ArrayList<Map<String, String>> result = new ArrayList<>();
+
+        for(batchDDIResult ddi : batchDDIs){
+            // ddi: [药物A1, 药物B1, DDI描述1]
+            Map<String, String> ddiMap = new HashMap<>();
+            ddiMap.put("drugAName", ddi.getDrugAName());
+            ddiMap.put("drugBName", ddi.getDrugBName());
+            ddiMap.put("ddiDescription", ddi.getDdiDescription());
+            // ddiMap: [drugAName: 药物A1, drugBName: 药物B1, ddiDescription: DDI描述1]
+            result.add(ddiMap);
+        }
+        return result;
+    }
+
+    public ArrayList<Map<String, String>> pagesSearch(int index, int limit){
+        ArrayList<Map<String, String>> result = batchSelectDDI(index, limit);
+        return result;
     }
 
     public Map<String, Object> handleSearch(String drugAName, String drugBName) {
