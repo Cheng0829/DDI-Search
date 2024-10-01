@@ -44,7 +44,7 @@ public class BasicServiceImpl implements BasicService {
         }
         else{
             for(int i = 0; i < drugs.size(); i += n){
-                ArrayList<Drug> subList = new ArrayList<>(drugs.subList(i, Math.min(i + 100, drugs.size())));
+                ArrayList<Drug> subList = new ArrayList<>(drugs.subList(i, Math.min(i + n, drugs.size())));
                 drugInfoMapper.batchInsertDrugInfo(subList);
 //                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
                 location += n;
@@ -60,13 +60,13 @@ public class BasicServiceImpl implements BasicService {
             return "暂无数据";
         }
         int location = 0;
-        int n = 0; // 性能限制：单次最大操作条数
-        if(ddis.size() < 1000) {
+        int n = 1000; // 性能限制：单次最大操作条数
+        if(ddis.size() < n) {
             ddiMapper.batchInsertDDI(ddis);
         }
         else{
             for(int i = 0; i < ddis.size(); i += n){
-                ArrayList<DDI> subList = new ArrayList<>(ddis.subList(i, Math.min(i + 100, ddis.size())));
+                ArrayList<DDI> subList = new ArrayList<>(ddis.subList(i, Math.min(i + n, ddis.size())));
 
                 ddiMapper.batchInsertDDI(subList);
 //                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
