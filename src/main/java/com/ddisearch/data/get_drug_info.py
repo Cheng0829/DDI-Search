@@ -135,7 +135,11 @@ def FromSmilesToImage(drugName, drugSmiles=''):
     mol = Chem.MolFromSmiles(drugSmiles)
     # mol = Chem.MolFromSmiles("CC1=CC2=CC3=C(OC(=O)C=C3C)C(C)=C2O1")
     # 绘制分子
-    img = Draw.MolToImage(mol)
+    try:
+        img = Draw.MolToImage(mol)
+    except:
+        img = Draw.MolToImage(Chem.MolFromSmiles("CC1=CC2=CC3=C(OC(=O)C=C3C)C(C)=C2O1"))
+
     # 保存图像
     img.save("./drugImage/{}.png".format(drugName))
 def addressCrawlDrug():
@@ -164,7 +168,19 @@ def addressCrawlDrug():
 
 # addressCrawlDrug()
 
-# with open('./drugInfo_1710_crawl.csv', mode='r', newline='', encoding='utf-8') as f:
-#     drugInfos = f.readlines()
-# for i in range(1, len(drugInfos)):
-#     FromSmilesToImage(drugName=drugInfos[i][2], drugSmiles=drugInfos[i][5])
+with open('./drugInfo_1710_crawl.csv', mode='r', encoding='utf-8') as file:
+    # 创建 CSV 阅读器
+    csv_reader = csv.reader(file)
+    # 跳过标题行
+    next(csv_reader)
+    i = 0
+    old_time = time.time()
+    for row in csv_reader:
+        drugName = row[2]
+        drugSmiles = row[5]
+        FromSmilesToImage(drugName=drugName, drugSmiles=drugSmiles)
+        i = i + 1
+        if(i==6666):
+            break
+        # print("i={}, time={}s.".format(i, round(time.time()-old_time, 4)))
+    print("time={}s.".format(round(time.time()-old_time, 4)))

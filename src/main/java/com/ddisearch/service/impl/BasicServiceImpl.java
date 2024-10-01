@@ -127,9 +127,14 @@ public class BasicServiceImpl implements BasicService {
         DrugResultList.put("smiles", drug.getSmiles());
         DrugResultList.put("description", drug.getDescription());
         DrugResultList.put("relatedDrugs", drug.getRelatedDrugs());
+        DrugResultList.put("pharmacodynamics", drug.getPharmacodynamics());
+        DrugResultList.put("actionMechanism", drug.getActionMechanism());
+        DrugResultList.put("proteinBinding", drug.getProteinBinding());
+        DrugResultList.put("metabolism", drug.getMetabolism());
 //        return DrugResultList;//.toString();
         return new HashMap<String, Object>(){{
             put("drugA", DrugResultList);
+//            put("drugB", new HashMap<>());
         }};
     }
 
