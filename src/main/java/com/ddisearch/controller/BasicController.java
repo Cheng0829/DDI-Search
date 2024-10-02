@@ -52,14 +52,13 @@ public class BasicController {
         return "mock数据：" + drugAName + "和" + drugBName + "之间存在联合作用的原因是XXXXX。";
     }
 
-    // http://127.0.0.1:8080/pageSearch/index=${index}&limit=${limit}
+    // http://127.0.0.1:8080/pageSearch/index={index}&limit={limit}
     // http://127.0.0.1:8080/pageSearch/index=1&limit=10
     @GetMapping("/pageSearch/index={index}&limit={limit}")
     @ResponseBody
     public ArrayList<Map<String, String>> pagesSearch(@PathVariable int index, @PathVariable int limit) {
         return basicService.pagesSearch(index, limit);
     }
-
 
     // http://127.0.0.1:8080/search/111&222
     // 返回json格式数据
@@ -82,10 +81,4 @@ public class BasicController {
     public String batchInsertDDI() {
         return basicService.batchInsertDDI();
     }
-
-    @GetMapping("/")
-    public String index() {
-        return "forward:/index.html";
-    }
-
 }
