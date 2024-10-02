@@ -101,3 +101,27 @@
 2024-10-02 13:16:51.050  INFO 18616 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 2 ms, called 8 times.
 2024-10-02 13:17:43.352  INFO 18616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-10-02 13:17:43.358  INFO 18616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-02 13:22:20.124  INFO 19232 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 19232 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-10-02 13:22:20.126  INFO 19232 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-02 13:22:20.547 ERROR 19232 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2024-10-02 13:22:20.646  INFO 19232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-10-02 13:22:20.649  INFO 19232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-02 13:22:20.650  INFO 19232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2024-10-02 13:22:20.721  INFO 19232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-02 13:22:20.721  INFO 19232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 577 ms
+2024-10-02 13:22:20.986  INFO 19232 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-10-02 13:22:21.061  INFO 19232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-02 13:22:21.066  INFO 19232 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.117 seconds (JVM running for 1.678)
+2024-10-02 13:22:30.512  INFO 19232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-02 13:22:30.513  INFO 19232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-02 13:22:30.513  INFO 19232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-02 13:22:30.547  INFO 19232 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-02 13:22:30.621  INFO 19232 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-02 13:22:30.644  INFO 19232 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 108 ms, called 1 times.
+2024-10-02 13:22:30.668  INFO 19232 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 3 ms, called 2 times.
+2024-10-02 13:22:45.441  INFO 19232 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 2 ms, called 3 times.
+2024-10-02 13:22:45.445  INFO 19232 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 1 ms, called 4 times.
+2024-10-02 13:23:00.593  INFO 19232 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.loginVerify(..) executed in 0 ms, called 1 times.
+2024-10-02 13:23:12.788  INFO 19232 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.loginVerify(..) executed in 0 ms, called 2 times.
+2024-10-02 13:23:29.147  INFO 19232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-02 13:23:29.151  INFO 19232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

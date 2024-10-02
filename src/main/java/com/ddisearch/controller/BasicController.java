@@ -17,10 +17,7 @@ import com.ddisearch.service.BasicService;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
@@ -58,6 +55,17 @@ public class BasicController {
     @ResponseBody
     public ArrayList<Map<String, String>> pagesSearch(@PathVariable int index, @PathVariable int limit) {
         return basicService.pagesSearch(index, limit);
+    }
+
+    @GetMapping("/loginVerify/{username}&{password}")
+    @ResponseBody
+    public String loginVerify(@PathVariable String username, @PathVariable String password) {
+         if (Objects.equals(username, "root") && Objects.equals(password, "123456")){
+             return "yes";
+         }
+         else{
+             return "no";
+         }
     }
 
     // http://127.0.0.1:8080/search/111&222
