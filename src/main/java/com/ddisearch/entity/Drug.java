@@ -47,8 +47,14 @@ public class Drug {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setOrderId(String id) {
+        if (id.startsWith("DB")){
+            String numberPart = id.substring(2);
+            this.orderId = String.valueOf(Long.parseLong(numberPart));
+        }
+        else{
+            this.orderId = id;
+        }
     }
 
     public String getDrugbankId() {
@@ -152,6 +158,20 @@ public class Drug {
         this.actionMechanism = actionMechanism;
         this.proteinBinding = proteinBinding;
         this.metabolism = metabolism;
+    }
+    public Drug(){
+        this.orderId = "";
+        this.drugbankId = "";
+        this.name = "";
+        this.category = "";
+        this.chemicalFormula = "";
+        this.smiles = "";
+        this.description = "";
+        this.relatedDrugs = "";
+        this.pharmacodynamics = "";
+        this.actionMechanism = "";
+        this.proteinBinding = "";
+        this.metabolism = "";
     }
 
     @Override

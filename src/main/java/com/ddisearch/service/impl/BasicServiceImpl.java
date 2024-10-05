@@ -19,10 +19,9 @@ import org.apache.commons.csv.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.web.bind.annotation.PathVariable;
+import com.ddisearch.data.DrugBankXMLHandler;
 
 import java.io.*;
-
-
 
 @Service
 public class BasicServiceImpl implements BasicService {
@@ -31,6 +30,49 @@ public class BasicServiceImpl implements BasicService {
     private DrugInfoMapper drugInfoMapper;
     @Autowired
     private DDIMapper ddiMapper;
+
+    public String batchInsertAllDrugInfoAndDDI(){
+        ArrayList<Drug> drugs = DrugBankXMLHandler.a();
+        ArrayList<DDI> ddis = DrugBankXMLHandler.ddiList;
+        if (drugs == null) {
+            return "暂无数据";
+        }
+        System.out.println("开始插入...");
+        int location = 0;
+        int n = 1000; // 性能限制：单次最大操作条数
+        if(drugs.size() < n) {
+            drugInfoMapper.batchInsertAllDrugInfo(drugs);
+        }
+        else{
+            for(int i = 0; i < drugs.size(); i += n){
+                if(i%1000 == 0){
+                    System.out.println("已插入" + location + "条数据");
+                }
+                ArrayList<Drug> subList = new ArrayList<>(drugs.subList(i, Math.min(i + n, drugs.size())));
+                drugInfoMapper.batchInsertAllDrugInfo(subList);
+
+                location += n;
+                System.out.println("已插入" + location + "条数据");
+            }
+        }
+
+        location = 0;
+        if(ddis.size() < n) {
+            ddiMapper.batchInsertAllDDI(ddis);
+        }
+        else{
+            for(int i = 0; i < ddis.size(); i += n){
+                ArrayList<DDI> subList = new ArrayList<>(ddis.subList(i, Math.min(i + n, ddis.size())));
+
+                ddiMapper.batchInsertAllDDI(subList);
+//                drugInfoMapper.batchInsertDrugInfo((ArrayList) drugs.subList(i, Math.min(i + 100, drugs.size())));
+                location += n;
+                System.out.println("已插入" + location + "条数据");
+            }
+        }
+        System.out.println("插入完成");
+        return "插入完成";
+    }
 
     public String batchInsertDrugInfo(){
         ArrayList<Drug> drugs = drugInfoCsvReader();
@@ -77,6 +119,15 @@ public class BasicServiceImpl implements BasicService {
         return "插入完成";
     }
 
+    public ArrayList<Drug> batchSelectAllDrug(){
+        ArrayList<Drug> drugs = drugInfoMapper.batchSelectAllDrug();
+        return drugs;
+    }
+
+    public ArrayList<batchDDIResult> batchSelectAllDDI(){
+        ArrayList<batchDDIResult> ddis = ddiMapper.batchSelectAllDDI();
+        return ddis;
+    }
     public Drug selectDrugInfoByName(String name){
         Drug drug = drugInfoMapper.selectDrugInfoByName(name);
         return drug;
@@ -209,7 +260,8 @@ public class BasicServiceImpl implements BasicService {
         ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
         for(DDI ddi : ddis){
             ddiResultList.put(ddi.getDdiType(), new HashMap<String, String>(){{
-                put("description", getDrugBankDDIDescription(drugAName, drugBName, ddi.getDdiType(), ddis.size()));
+                put("description", ddi.getDescription());
+//                put("description", getDrugBankDDIDescription(drugAName, drugBName, ddi.getDdiType(), ddis.size()));
                 put("confidence", String.valueOf(ddi.getConfidence()));
             }});
         }
@@ -322,16 +374,6 @@ public class BasicServiceImpl implements BasicService {
             e.printStackTrace();
             return "";
         }
-    }
-
-    // 查找两个药物之间的多种副作用
-    public String ddiSearch(String drugAName, String drugBName) {
-        ArrayList<DDI> ddis = selectDDIByName(drugAName, drugBName);
-        StringBuilder ddiStrs = new StringBuilder();
-        for(DDI ddi : ddis){
-            ddiStrs.append(ddi.toString()).append("<br>");
-        }
-        return ddiStrs.toString();
     }
 
     public static ArrayList<Drug> drugInfoCsvReader() {

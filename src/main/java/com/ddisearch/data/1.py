@@ -128,4 +128,4 @@ def gaixie():
     with open('DDI-DescriptionTemplate-reverse.json', 'w') as file:
         json.dump(new_data, file, indent=4)
 
-gaixie()
+# gaixie()
