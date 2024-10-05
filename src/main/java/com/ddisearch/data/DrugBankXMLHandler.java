@@ -1,28 +1,17 @@
 package com.ddisearch.data;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.ddisearch.entity.DDI;
-import com.ddisearch.entity.Drug;
-import com.ddisearch.mapper.DDIMapper;
-import com.ddisearch.mapper.DrugInfoMapper;
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.w3c.dom.*;
-
+import java.util.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-import java.util.Comparator;
-
+import org.json.JSONObject;
+import org.w3c.dom.*;
 import static java.util.Collections.max;
+import com.ddisearch.entity.DDI;
+import com.ddisearch.entity.Drug;
 
 class Property {
     private String kind;
@@ -51,10 +40,10 @@ public class DrugBankXMLHandler {
     public static ArrayList<DDI> ddiList = new ArrayList<>();
 
     public static void main(String[] args) {
-        a();
+        parseDrugBankXML();
     }
 
-    public static ArrayList<Drug> a() {
+    public static ArrayList<Drug> parseDrugBankXML() {
         try {
             System.out.println("开始解析XML文件...");
             // 创建一个DocumentBuilderFactory对象

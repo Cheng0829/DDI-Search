@@ -1,2 +1,0 @@
-
-提取ddi三元组（A的drugbankId + B的drugbankId + Type（去除-1））（A的orderId + B的orderId + Type（去除-1））

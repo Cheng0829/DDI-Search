@@ -4,22 +4,17 @@ package com.ddisearch.service.impl;
  * @author Junkai Cheng
  * @date 2024/9/27 18:10
  */
+import java.util.*;
+import org.apache.commons.csv.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.ddisearch.data.DrugBankXMLHandler;
 import com.ddisearch.entity.DDI;
 import com.ddisearch.entity.Drug;
 import com.ddisearch.entity.batchDDIResult;
 import com.ddisearch.mapper.DDIMapper;
 import com.ddisearch.mapper.DrugInfoMapper;
 import com.ddisearch.service.BasicService;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.*;
-import org.apache.commons.csv.*;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.springframework.web.bind.annotation.PathVariable;
-import com.ddisearch.data.DrugBankXMLHandler;
 
 import java.io.*;
 
@@ -30,9 +25,8 @@ public class BasicServiceImpl implements BasicService {
     private DrugInfoMapper drugInfoMapper;
     @Autowired
     private DDIMapper ddiMapper;
-
     public String batchInsertAllDrugInfoAndDDI(){
-        ArrayList<Drug> drugs = DrugBankXMLHandler.a();
+        ArrayList<Drug> drugs = DrugBankXMLHandler.parseDrugBankXML();
         ArrayList<DDI> ddis = DrugBankXMLHandler.ddiList;
         if (drugs == null) {
             return "暂无数据";
@@ -43,6 +37,7 @@ public class BasicServiceImpl implements BasicService {
         if(drugs.size() < n) {
             drugInfoMapper.batchInsertAllDrugInfo(drugs);
         }
+
         else{
             for(int i = 0; i < drugs.size(); i += n){
                 if(i%1000 == 0){
@@ -271,109 +266,6 @@ public class BasicServiceImpl implements BasicService {
             put("drugB", drugBResult);
             put("ddi", ddiResultList);
         }};
-    }
-
-    public String getDrugBankDDIDescription(String drugAName, String drugBName, String ddiType, int n) {
-        String drugADrugBankId = replaceDrugNameToDrugBankID(drugAName);
-        String url = "https://go.drugbank.com/drugs/" + drugADrugBankId + "/drug_interactions.json?search%5Bvalue=" + drugBName;
-        String cookie = "hubspotutk=b214ced45a953849626f3112c0566792; _ga=GA1.1.1085880825.1727508634; cookieyes-consent=consentid:S3FPMDByWHhybXE0NmZ3V1N6WWlPNVdLNXRBelJIN0Q,consent:yes,action:no,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes; _gcl_au=1.1.1013946945.1727508635; _hjSessionUser_191585=eyJpZCI6IjQwMjViZGVmLTc2MmQtNTZhMS1hNDg4LTQ1ZTFlNjFjZTBjNyIsImNyZWF0ZWQiOjE3Mjc1MDg2MzMxMjEsImV4aXN0aW5nIjp0cnVlfQ==; __hssrc=1; remember_public_user_token=eyJfcmFpbHMiOnsibWVzc2FnZSI6Ilcxc3pNamd6TURSZExDSWtNbUVrTVRFa1NDNXJhbWhSVFZCbGFUVk5MeTR3VjJKSGNYRXlUeUlzSWpFM01qYzJNVFl3TWpZdU56ZzFOelF5SWwwPSIsImV4cCI6IjIwMjQtMTAtMTNUMTM6MjA6MjYuNzg1WiIsInB1ciI6ImNvb2tpZS5yZW1lbWJlcl9wdWJsaWNfdXNlcl90b2tlbiJ9fQ%3D%3D--cfa5febb2690387d0f1f9afeb65209ca73a12234; _clck=1qhlmtk%7C2%7Cfpm%7C0%7C1732; __hstc=49600953.b214ced45a953849626f3112c0566792.1727508633128.1727665697965.1727676334763.8; _omx_drug_bank_session=ILP51QHXZIuDQ16LNqJmJQ3A1SeTGymENlg1VCVn4I%2BgXVYrNsGngnyGBdIygPXYfO1OOrk6p8n02dDZyN8eaKyvqpCVBAWqip1SDvBDKX40SodDM8Ajz6h9zE17d9OGLOk0WgqqI1KVGaqhGqW%2F3MBF3wUYtHhOY7sIu6TsEhObgNB1hNync1t8RAEdFQERSCzcaZlTv6mLKagcq5TJx9X36wVQ2mr5rrCMAdGr7cZkr7ewr11eeNx3a00kSVLeeCkTzo5xloUdom8TzynQpBqBhEc645DGmocXdtf3FjFadrxniGQPmXy9Kc%2BOViJMWDsE4%2B7x7Tzl%2FuPVIjTaUY1gCBt0ITtAHoqoQhHSeUJsrmPKsitcSAEdwjTgoMxLNXojIiG8yT6sonMKK4%2BO4bWOHdl712gKV7mQTRid6iVj6cpgMpgIhNaPAmAPoDlkdPGG8LGSfZzHNSL%2FL2AgRA2f2UrhUg%3D%3D--WDw5IAxZIA28TKya--BgnLmhaQalnqku3fEUw5Ug%3D%3D; _clsk=1m7ytop%7C1727683357840%7C2%7C1%7Cr.clarity.ms%2Fcollect; _ga_DDLJ7EEV9M=GS1.1.1727683363.11.0.1727683363.60.0.0";
-        // 添加代理
-        String proxyHost = "127.0.0.1";
-        int proxyPort = 7890;
-
-        if(n == 1 && 1==0){
-            try {
-                // 使用 Jsoup 发送 HTTP GET 请求
-                Document document = Jsoup.connect(url)
-                        .proxy(proxyHost, proxyPort)
-                        .header("Cookie", cookie)
-                        .ignoreContentType(true) // 忽略内容类型
-                        .get();
-
-                // 获取响应体
-                String responseBody = document.body().text();
-
-                // 解析 JSON 数据
-                JSONObject jsonObject = new JSONObject(responseBody);
-
-                // 获取 data 数组中的第一个元素
-                if (jsonObject.has("data") && jsonObject.getJSONArray("data").length() > 0) {
-                    String interactionDescription = jsonObject.getJSONArray("data")
-                            .getJSONArray(0)
-                            .getString(1);
-                    System.out.println(interactionDescription);
-                    return interactionDescription;
-                } else {
-                    String filePath = "D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\DDI-DescriptionTemplate.json";
-                    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                        StringBuilder jsonBuilder = new StringBuilder();
-                        String line;
-                        while ((line = reader.readLine()) != null) {
-                            jsonBuilder.append(line);
-                        }
-
-                        // 将文件内容转换为 JSONObject
-                        JSONObject jsonObject1 = new JSONObject(jsonBuilder.toString());
-                        if(jsonObject1.has(ddiType)){
-                            // 提取所需信息
-                            String ddiDescriptionTemplate = jsonObject1.getString(ddiType);
-                            return ddiDescriptionTemplate.replace("drugAName", drugAName).replace("drugBName", drugBName);
-                        }
-                        else {
-                            return "";
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return "";
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        else {
-            String filePath = "D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\DDI-DescriptionTemplate.json";
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                StringBuilder jsonBuilder = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    jsonBuilder.append(line);
-                }
-
-                // 将文件内容转换为 JSONObject
-                JSONObject jsonObject1 = new JSONObject(jsonBuilder.toString());
-                if(jsonObject1.has(ddiType)){
-                    // 提取所需信息
-                    String ddiDescriptionTemplate = jsonObject1.getString(ddiType);
-                    return ddiDescriptionTemplate.replace("drugAName", drugAName).replace("drugBName", drugBName);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return "";
-    }
-
-    public String replaceDrugNameToDrugBankID(String drugAName){
-        String filePath = "D:\\Java\\code\\DDI-Search\\src\\main\\java\\com\\ddisearch\\data\\DrugBankId_DrugName.json";
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            StringBuilder jsonBuilder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonBuilder.append(line);
-            }
-
-            // 将文件内容转换为 JSONObject
-            JSONObject jsonObject = new JSONObject(jsonBuilder.toString());
-            String drugBankId = jsonObject.getString(drugAName);
-            // 提取所需信息
-            return drugBankId;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "";
-        }
     }
 
     public static ArrayList<Drug> drugInfoCsvReader() {
