@@ -15,5 +15,7 @@ public interface DrugInfoMapper {
     void singleInsertDrugInfo(Drug drugInfos);
     void batchInsertDrugInfo(ArrayList<Drug> drugs);
     Drug selectDrugInfoByName(String name);
+    void batchInsertAllDrugInfo(ArrayList<Drug> drugs);
+    ArrayList<Drug> batchSelectAllDrug();
 }
 

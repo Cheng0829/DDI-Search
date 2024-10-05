@@ -41,8 +41,13 @@ public class DDI {
         return ddiType;
     }
 
-    public void setDdiType(String ddiType) {
-        this.ddiType = ddiType;
+    public void setDdiType(String ddiTypeOrDescripton) {
+        if(ddiTypeOrDescripton.startsWith("description")){
+            this.ddiType = ddiTypeOrDescripton;
+        } else {
+            this.ddiType = ddiTypeOrDescripton;
+        }
+
     }
 
     public String getDescription() {
@@ -67,6 +72,14 @@ public class DDI {
         this.ddiType = ddiType;
         this.description = description;
         this.confidence = confidence;
+    }
+
+    public DDI() {
+        this.drugAName = "";
+        this.drugBName = "";
+        this.ddiType = "";
+        this.description = "";
+        this.confidence = 0;
     }
 
     @Override

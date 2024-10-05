@@ -18,4 +18,6 @@ public interface DDIMapper {
     void batchInsertDDI(ArrayList<DDI> ddis);
     ArrayList<DDI> selectDDIByName(@Param("drugAName") String drugAName, @Param("drugBName") String drugBName);
     ArrayList<batchDDIResult> batchSelectDDI(@Param("offset") int offset, @Param("limit") int limit);
+    void batchInsertAllDDI(ArrayList<DDI> ddis);
+    ArrayList<batchDDIResult> batchSelectAllDDI();
 }
