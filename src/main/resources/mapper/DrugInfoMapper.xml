@@ -3,16 +3,45 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ddisearch.mapper.DrugInfoMapper">
 
-    <insert id="batchInsertDrugInfo" parameterType="java.util.List">
-        INSERT INTO test1_drugs (order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs)
+    <insert id="batchInsertAllDrugInfo" parameterType="java.util.List">
+        INSERT INTO cjk.all_drug_info (order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs, pharmacodynamics, action_mechanism, protein_binding, metabolism)
         VALUES
         <foreach collection="list" item="drug" separator=",">
-            (#{drug.orderId}, #{drug.drugbankId}, #{drug.name}, #{drug.category}, #{drug.chemicalFormula}, #{drug.smiles}, #{drug.description}, #{drug.relatedDrugs})
+            (#{drug.orderId}, #{drug.drugbankId}, #{drug.name}, #{drug.category}, #{drug.chemicalFormula}, #{drug.smiles}, #{drug.description}, #{drug.relatedDrugs}, #{drug.pharmacodynamics}, #{drug.actionMechanism}, #{drug.proteinBinding}, #{drug.metabolism})
+        </foreach>
+    </insert>
+
+    <insert id="batchInsertDrugInfo" parameterType="java.util.List">
+        INSERT INTO cjk.drug_info (order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs, pharmacodynamics, action_mechanism, protein_binding, metabolism)
+        VALUES
+        <foreach collection="list" item="drug" separator=",">
+            (#{drug.orderId}, #{drug.drugbankId}, #{drug.name}, #{drug.category}, #{drug.chemicalFormula}, #{drug.smiles}, #{drug.description}, #{drug.relatedDrugs}, #{drug.pharmacodynamics}, #{drug.actionMechanism}, #{drug.proteinBinding}, #{drug.metabolism})
         </foreach>
     </insert>
 
     <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.Drug">
-        SELECT order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs FROM test1_drugs WHERE name = #{name}
+        SELECT DISTINCT order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs, pharmacodynamics, action_mechanism, protein_binding, metabolism FROM cjk.all_drug_info WHERE name = #{name}
+    </select>
+
+    <!-- 定义 resultMap -->
+    <resultMap id="drugResultMap" type="com.ddisearch.entity.Drug">
+        <id property="orderId" column="order_id"/>
+        <result property="drugbankId" column="drugbank_id"/>
+        <result property="name" column="name"/>
+        <result property="category" column="category"/>
+        <result property="chemicalFormula" column="chemical_formula"/>
+        <result property="smiles" column="smiles"/>
+        <result property="description" column="description"/>
+        <result property="relatedDrugs" column="related_drugs"/>
+        <result property="pharmacodynamics" column="pharmacodynamics"/>
+        <result property="actionMechanism" column="action_mechanism"/>
+        <result property="proteinBinding" column="protein_binding"/>
+        <result property="metabolism" column="metabolism"/>
+    </resultMap>
+
+    <!-- 使用 resultMap 的查询语句 -->
+    <select id="batchSelectAllDrug" resultMap="drugResultMap">
+        SELECT DISTINCT order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs, pharmacodynamics, action_mechanism, protein_binding, metabolism FROM cjk.all_drug_info
     </select>
 
 </mapper>

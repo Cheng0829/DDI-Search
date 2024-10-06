@@ -7,11 +7,18 @@ package com.ddisearch.service;
 import com.ddisearch.entity.Drug;
 import com.ddisearch.entity.DDI;
 import java.util.*;
+
+import com.ddisearch.entity.batchDDIResult;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 public interface BasicService {
     Map<String, Object> handleSearch(String drugAName, String drugBName);
     String batchInsertDrugInfo();
     String batchInsertDDI();
+    ArrayList<Map<String, String>> pagesSearch(int index, int limit);
+    String batchInsertAllDrugInfoAndDDI();
+    ArrayList<Drug> batchSelectAllDrug();
+    ArrayList<batchDDIResult> batchSelectAllDDI();
 }

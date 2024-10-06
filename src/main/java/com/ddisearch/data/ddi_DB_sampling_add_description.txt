@@ -1,0 +1,173 @@
+drug1	drug2	Label	description
+DB04571	DB00460	1	The therapeutic efficacy of Acetohexamide can be increased when used in combination with Trioxsalen.
+DB00855	DB00460	1	The risk or severity of methemoglobinemia can be increased when Aminolevulinic acid is combined with Ambroxol.
+DB08897	DB00424	2	1,10-Phenanthroline may increase the neuromuscular blocking activities of Aclidinium.
+DB00670	DB06148	2	The therapeutic efficacy of Pirenzepine can be decreased when used in combination with 1,10-Phenanthroline.
+DB09275	DB00635	3	Acepromazine may increase the neurotoxic activities of Bismuth subcitrate potassium.
+DB03754	DB00860	3	The serum concentration of Flecainide can be increased when it is combined with Tromethamine.
+DB00615	DB01435	4	The metabolism of (R)-warfarin can be increased when combined with Rifabutin.
+DB00252	DB00199	4	The serum concentration of Phenytoin can be decreased when it is combined with (6R)-Folinic acid.
+DB00590	DB06262	5	The metabolism of (R)-warfarin can be decreased when combined with Doxazosin.
+DB00421	DB00751	5	1-benzylimidazole may decrease the antihypertensive activities of Spironolactone.
+DB06605	DB00686	6	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Apixaban.
+DB00682	DB01118	6	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Warfarin.
+DB00958	DB00445	7	The risk or severity of bleeding can be increased when (R)-warfarin is combined with Carboplatin.
+DB00903	DB00695	7	The protein binding of (R)-warfarin can be decreased when combined with Etacrynic acid.
+DB00230	DB01106	8	The therapeutic efficacy of 1,2-Benzodiazepine can be increased when used in combination with Pregabalin.
+DB01037	DB00295	8	The risk or severity of bleeding and hemorrhage can be increased when Selegiline is combined with (R)-warfarin.
+DB00672	DB01297	9	Chlorpropamide may increase the anticoagulant activities of (R)-warfarin.
+DB08907	DB01059	9	Canagliflozin may increase the hypoglycemic activities of 2,4-thiazolidinedione.
+DB00862	DB01119	10	The metabolism of (R)-warfarin can be decreased when combined with Vardenafil.
+DB00203	DB09070	10	The risk or severity of hemorrhage can be increased when (R)-warfarin is combined with Sildenafil.
+DB13179	DB09274	11	The metabolism of (R)-warfarin can be decreased when combined with Troleandomycin.
+DB00196	DB00758	11	The serum concentration of (R)-warfarin can be increased when it is combined with Fluconazole.
+DB00498	DB00550	12	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Phenindione.
+DB12598	DB04573	12	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Nafamostat.
+DB02513	DB00396	13	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Thymol.
+DB01141	DB00396	13	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Micafungin.
+DB00866	DB00221	14	The risk or severity of adverse effects can be increased when Alprenolol is combined with (R)-warfarin.
+DB00612	DB05039	14	1-benzylimidazole may decrease the antihypertensive activities of Bisoprolol.
+DB00531	DB06176	15	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Cyclophosphamide.
+DB00531	DB06704	15	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Cyclophosphamide.
+DB00611	DB00366	16	The risk or severity of adverse effects can be increased when Butorphanol is combined with 1,2-Benzodiazepine.
+DB00807	DB06204	16	The risk or severity of methemoglobinemia can be increased when 10-hydroxycamptothecin is combined with Proparacaine.
+DB00903	DB00728	17	The protein binding of (R)-warfarin can be decreased when combined with Etacrynic acid.
+DB00695	DB00565	17	1-benzylimidazole may decrease the antihypertensive activities of Furosemide.
+DB01390	DB06701	18	The serum concentration of 2,5-Dimethoxy-4-ethylamphetamine can be increased when it is combined with Sodium bicarbonate.
+DB00927	DB00422	18	The metabolism of (R)-warfarin can be decreased when combined with Famotidine.
+DB00248	DB01193	19	The serum concentration of (R)-warfarin can be increased when it is combined with Cabergoline.
+DB00589	DB00696	19	The risk or severity of adverse effects can be increased when Lisuride is combined with (R)-warfarin.
+DB01624	DB06825	20	The risk or severity of adverse effects can be increased when Zuclopenthixol is combined with (R)-warfarin.
+DB00333	DB09080	20	The serum concentration of (R)-warfarin can be increased when it is combined with Methadone.
+DB00732	DB01627	21	The therapeutic efficacy of Atracurium besylate can be decreased when used in combination with 1,10-Phenanthroline.
+DB00483	DB00618	21	The therapeutic efficacy of Gallamine triethiodide can be decreased when used in combination with 1,10-Phenanthroline.
+DB08906	DB00732	22	Fluticasone furoate may increase the anticoagulant activities of (R)-warfarin.
+DB01708	DB01226	22	The serum concentration of (1,2,6,7-3H)Testosterone can be increased when it is combined with Prasterone.
+DB00937	DB00543	23	The therapeutic efficacy of 1-benzylimidazole can be decreased when used in combination with Diethylpropion.
+DB00191	DB00458	23	The therapeutic efficacy of 1-benzylimidazole can be decreased when used in combination with Phentermine.
+DB00399	DB00997	24	The risk or severity of gastrointestinal bleeding can be increased when Aceclofenac is combined with Zoledronic acid.
+DB00884	DB06263	24	The risk or severity of gastrointestinal bleeding can be increased when Aceclofenac is combined with Risedronic acid.
+DB06707	DB00571	25	1-benzylimidazole may decrease the hypertensive activities of Levonordefrin.
+DB00714	DB00373	25	The metabolism of (R)-warfarin can be decreased when combined with Apomorphine.
+DB01045	DB06209	26	The metabolism of (R)-warfarin can be increased when combined with Rifampicin.
+DB00338	DB00758	26	The metabolism of (R)-warfarin can be decreased when combined with Omeprazole.
+DB08981	DB04576	27	The risk or severity of bleeding and hemorrhage can be increased when Fenbufen is combined with (R)-warfarin.
+DB00939	DB00817	27	The risk or severity of bleeding and hemorrhage can be increased when Meclofenamic acid is combined with (R)-warfarin.
+DB00932	DB04573	28	The risk or severity of bleeding and hemorrhage can be increased when Tipranavir is combined with (R)-warfarin.
+DB00619	DB00448	28	Imatinib may increase the anticoagulant activities of (R)-warfarin.
+DB01024	DB00695	29	The risk or severity of bleeding can be increased when Mycophenolic acid is combined with (R)-warfarin.
+DB01283	DB00887	29	The risk or severity of bleeding and hemorrhage can be increased when Lumiracoxib is combined with (R)-warfarin.
+DB01297	DB00457	30	The metabolism of Practolol can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB01351	DB00999	30	The metabolism of (R)-warfarin can be increased when combined with Amobarbital.
+DB00968	DB09241	31	1-benzylimidazole may decrease the antihypertensive activities of Methyldopa.
+DB00968	DB09245	31	1-benzylimidazole may decrease the antihypertensive activities of Methyldopa.
+DB00313	DB00268	32	The serum concentration of (6R)-Folinic acid can be decreased when it is combined with Valproic acid.
+DB00181	DB00765	32	Baclofen may increase the central nervous system depressant (CNS depressant) activities of 1,2-Benzodiazepine.
+DB00539	DB00604	33	The risk or severity of bleeding can be increased when Toremifene is combined with (R)-warfarin.
+DB00280	DB09039	33	The metabolism of (R)-warfarin can be decreased when combined with Disopyramide.
+DB01280	DB08868	34	The risk or severity of bleeding can be increased when (R)-warfarin is combined with Nelarabine.
+DB01656	DB08877	34	The metabolism of (R)-warfarin can be decreased when combined with Roflumilast.
+DB01356	DB00875	35	The risk or severity of adverse effects can be increased when Lithium cation is combined with (R)-warfarin.
+DB00444	DB00541	35	The serum concentration of (R)-warfarin can be increased when it is combined with Teniposide.
+DB06288	DB00679	36	The risk or severity of adverse effects can be increased when Amisulpride is combined with (R)-warfarin.
+DB00391	DB06144	36	The risk or severity of adverse effects can be increased when Sulpiride is combined with (R)-warfarin.
+DB00368	DB00370	37	1-benzylimidazole may decrease the hypertensive activities of Norepinephrine.
+DB00852	DB09167	37	The therapeutic efficacy of 1-benzylimidazole can be decreased when used in combination with Pseudoephedrine.
+DB00883	DB00898	38	7,8-Dichloro-1,2,3,4-tetrahydroisoquinoline may increase the orthostatic hypotensive activities of Isosorbide dinitrate.
+DB00727	DB06237	38	1-benzylimidazole may decrease the antihypertensive activities of Nitroglycerin.
+DB09300	DB09290	39	The therapeutic efficacy of Butylscopolamine can be decreased when used in combination with 1,10-Phenanthroline.
+DB00899	DB09272	39	The risk or severity of hypertension can be increased when Remifentanil is combined with 1-benzylimidazole.
+DB11156	DB03615	40	The risk or severity of CNS depression can be increased when Pyrantel is combined with 1,2-Benzodiazepine.
+DB01336	DB06696	40	The therapeutic efficacy of Metocurine can be decreased when used in combination with 1,10-Phenanthroline.
+DB09241	DB00454	41	The serum concentration of (R)-warfarin can be increased when it is combined with Methylene blue.
+DB01037	DB00454	41	The risk or severity of bleeding and hemorrhage can be increased when Selegiline is combined with (R)-warfarin.
+DB00421	DB00091	42	1-benzylimidazole may decrease the antihypertensive activities of Spironolactone.
+DB00384	DB00864	42	The metabolism of (R)-warfarin can be decreased when combined with Triamterene.
+DB01289	DB01032	43	Glisoxepide may increase the anticoagulant activities of (R)-warfarin.
+DB00252	DB01327	43	The serum concentration of Phenytoin can be decreased when it is combined with (6R)-Folinic acid.
+DB09245	DB00289	44	The risk or severity of bleeding and hemorrhage can be increased when Toloxatone is combined with (R)-warfarin.
+DB01367	DB00289	44	The risk or severity of bleeding and hemorrhage can be increased when Rasagiline is combined with (R)-warfarin.
+DB08824	DB00215	45	2,5-Dimethoxy-4-ethylamphetamine may decrease effectiveness of Ioflupane I-123 as a diagnostic agent.
+DB08824	DB01175	45	2,5-Dimethoxy-4-ethylamphetamine may decrease effectiveness of Ioflupane I-123 as a diagnostic agent.
+DB01359	DB06709	46	The risk or severity of adverse effects can be increased when Penbutolol is combined with (R)-warfarin.
+DB00373	DB06709	46	The metabolism of (R)-warfarin can be decreased when combined with Timolol.
+DB00518	DB12332	47	The metabolism of (R)-warfarin can be increased when combined with Albendazole.
+DB01591	DB01243	47	The metabolism of Solifenacin can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB01076	DB09055	48	The risk or severity of bleeding can be increased when Atorvastatin is combined with (R)-warfarin.
+DB01394	DB01039	48	The metabolism of Colchicine can be decreased when combined with 6-Deoxyerythronolide B.
+DB00844	DB00999	49	The risk or severity of adverse effects can be increased when Nalbuphine is combined with 1,2-Benzodiazepine.
+DB00176	DB01063	49	The serum concentration of (R)-warfarin can be increased when it is combined with Fluvoxamine.
+DB04878	DB00230	50	The risk or severity of hypoglycemia can be increased when Voglibose is combined with 2,4-thiazolidinedione.
+DB01124	DB00230	50	The metabolism of (R)-warfarin can be decreased when combined with Tolbutamide.
+DB01070	DB01021	51	The risk or severity of adverse effects can be increased when Dihydrotachysterol is combined with 1alpha-Hydroxyvitamin D5.
+DB06410	DB00232	51	The risk or severity of adverse effects can be increased when Doxercalciferol is combined with 1alpha-Hydroxyvitamin D5.
+DB06204	DB00377	52	The risk or severity of adverse effects can be increased when Tapentadol is combined with (R)-warfarin.
+DB00193	DB00904	52	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Tramadol.
+DB08439	DB01104	53	The risk or severity of bleeding and hemorrhage can be increased when Parecoxib is combined with (R)-warfarin.
+DB00945	DB06700	53	Acetylsalicylic acid may increase the anticoagulant activities of (R)-warfarin.
+DB00390	DB00989	54	The risk or severity of ventricular arrhythmias and Cardiac Arrhythmia can be increased when 1alpha-Hydroxyvitamin D5 is combined with Digoxin.
+DB01203	DB08865	54	The metabolism of Nadolol can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB00310	DB00215	55	1-benzylimidazole may decrease the antihypertensive activities of Chlorthalidone.
+DB00232	DB00472	55	The therapeutic efficacy of (R)-warfarin can be decreased when used in combination with Methyclothiazide.
+DB00796	DB01412	56	The metabolism of (R)-warfarin can be decreased when combined with Candesartan cilexetil.
+DB00796	DB00742	56	The metabolism of (R)-warfarin can be decreased when combined with Candesartan cilexetil.
+DB00452	DB00529	57	The risk or severity of bleeding can be increased when Framycetin is combined with (R)-warfarin.
+DB00864	DB00573	57	The serum concentration of (R)-warfarin can be increased when it is combined with Tacrolimus.
+DB00290	DB01092	58	The risk or severity of adverse effects can be increased when Bleomycin is combined with 2-Methoxyethanol.
+DB00544	DB00511	58	The risk or severity of adverse effects can be increased when (6R)-Folinic acid is combined with Fluorouracil.
+DB00332	DB00761	59	The therapeutic efficacy of Ipratropium can be decreased when used in combination with 1,10-Phenanthroline.
+DB00657	DB00761	59	1-benzylimidazole may decrease the antihypertensive activities of Mecamylamine.
+DB01168	DB00492	60	The risk or severity of bleeding and hemorrhage can be increased when Procarbazine is combined with (R)-warfarin.
+DB00752	DB01359	60	The serum concentration of (R)-warfarin can be increased when it is combined with Tranylcypromine.
+DB00191	DB09128	61	The therapeutic efficacy of 1-benzylimidazole can be decreased when used in combination with Phentermine.
+DB09352	DB00831	61	The risk or severity of adverse effects can be increased when Hydroxyamphetamine is combined with 3-isobutyl-1-methyl-7H-xanthine.
+DB00727	DB01200	62	1-benzylimidazole may decrease the antihypertensive activities of Nitroglycerin.
+DB00727	DB00589	62	1-benzylimidazole may decrease the antihypertensive activities of Nitroglycerin.
+DB01033	DB00993	63	The therapeutic efficacy of (R)-warfarin can be decreased when used in combination with Mercaptopurine.
+DB06772	DB00515	63	The metabolism of (R)-warfarin can be decreased when combined with Cabazitaxel.
+DB01104	DB09042	64	The risk or severity of bleeding can be increased when Sertraline is combined with (R)-warfarin.
+DB09241	DB09244	64	The serum concentration of (R)-warfarin can be increased when it is combined with Methylene blue.
+DB01192	DB06767	65	The metabolism of Oxymorphone can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB01356	DB01390	65	The risk or severity of adverse effects can be increased when Lithium cation is combined with (R)-warfarin.
+DB12364	DB13167	66	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Betrixaban.
+DB06605	DB13783	66	(1,2,6,7-3H)Testosterone may increase the anticoagulant activities of Apixaban.
+DB00827	DB11126	67	The therapeutic efficacy of (R)-warfarin can be increased when used in combination with Cinoxacin.
+DB00240	DB00375	67	The risk or severity of hyperglycemia can be increased when Alclometasone is combined with 2,4-thiazolidinedione.
+DB00584	DB00700	68	1-benzylimidazole may decrease the antihypertensive activities of Enalapril.
+DB01395	DB12598	68	The risk or severity of adverse effects can be increased when Drospirenone is combined with (R)-warfarin.
+DB01227	DB01365	69	The therapeutic efficacy of Levacetylmethadol can be decreased when used in combination with 1,10-Phenanthroline.
+DB01192	DB01576	69	The metabolism of Oxymorphone can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB06730	DB04272	70	The risk or severity of adverse effects can be increased when Gestodene is combined with (R)-warfarin.
+DB00256	DB09268	70	Lymecycline may increase the anticoagulant activities of (R)-warfarin.
+DB01577	DB00780	71	The metabolism of Metamfetamine can be decreased when combined with 1-(2-Phenylethyl)-4-phenyl-4-acetoxypiperidine.
+DB01274	DB00248	71	The metabolism of (R)-warfarin can be decreased when combined with Arformoterol.
+DB00684	DB01009	72	The risk or severity of bleeding can be increased when Tobramycin is combined with (R)-warfarin.
+DB03615	DB00991	72	The risk or severity of bleeding can be increased when Ribostamycin is combined with (R)-warfarin.
+DB00617	DB09280	73	The metabolism of (R)-warfarin can be decreased when combined with Paramethadione.
+DB00227	DB00763	73	The risk or severity of bleeding can be increased when Lovastatin is combined with (R)-warfarin.
+DB11921	DB01420	74	Deflazacort may increase the anticoagulant activities of (R)-warfarin.
+DB01260	DB08804	74	The risk or severity of hyperglycemia can be increased when Desonide is combined with 2,4-thiazolidinedione.
+DB00615	DB00860	75	The metabolism of (R)-warfarin can be increased when combined with Rifabutin.
+DB00252	DB08875	75	The serum concentration of Phenytoin can be decreased when it is combined with (6R)-Folinic acid.
+DB09352	DB00835	76	The risk or severity of adverse effects can be increased when Hydroxyamphetamine is combined with 3-isobutyl-1-methyl-7H-xanthine.
+DB00937	DB00370	76	The therapeutic efficacy of 1-benzylimidazole can be decreased when used in combination with Diethylpropion.
+DB01200	DB06695	77	The serum concentration of (R)-warfarin can be increased when it is combined with Bromocriptine.
+DB06800	DB06702	77	Abacavir may decrease the excretion rate of Methylnaltrexone which could result in a higher serum level.
+DB09063	DB09095	78	The serum concentration of (R)-warfarin can be increased when it is combined with Ceritinib.
+DB09063	DB09091	78	The serum concentration of (R)-warfarin can be increased when it is combined with Ceritinib.
+DB09244	DB00708	79	The risk or severity of bleeding and hemorrhage can be increased when Pirlindole is combined with (R)-warfarin.
+DB01247	DB00802	79	The risk or severity of bleeding and hemorrhage can be increased when Isocarboxazid is combined with (R)-warfarin.
+DB00619	DB09288	80	Imatinib may increase the anticoagulant activities of (R)-warfarin.
+DB00908	DB01174	80	The serum concentration of (R)-warfarin can be increased when it is combined with Quinidine.
+DB00302	DB00890	81	Tranexamic acid may increase the thrombogenic activities of Albutrepenonacog alfa.
+DB00480	DB01234	81	The risk or severity of bleeding can be increased when (R)-warfarin is combined with Lenalidomide.
+DB01071	DB06216	82	The serum concentration of (R)-warfarin can be increased when it is combined with Mequitazine.
+DB01078	DB13231	82	The risk or severity of ventricular arrhythmias and Cardiac Arrhythmia can be increased when 1alpha-Hydroxyvitamin D5 is combined with Deslanoside.
+DB13139	DB00774	83	The risk or severity of hypertension can be increased when 1-benzylimidazole is combined with Levosalbutamol.
+DB01260	DB00903	83	The risk or severity of hyperglycemia can be increased when Desonide is combined with 2,4-thiazolidinedione.
+DB00370	DB00388	84	Mirtazapine may increase the anticoagulant activities of (R)-warfarin.
+DB00543	DB00723	84	The risk or severity of bleeding can be increased when Amoxapine is combined with (R)-warfarin.
+DB04896	DB00964	85	The serum concentration of (R)-warfarin can be increased when it is combined with Milnacipran.
+DB06700	DB00841	85	The risk or severity of adverse effects can be increased when Desvenlafaxine is combined with (R)-warfarin.
+DB00437	DB00722	86	The risk or severity of bleeding can be increased when Allopurinol is combined with (R)-warfarin.
+DB00437	DB00232	86	The risk or severity of bleeding can be increased when Allopurinol is combined with (R)-warfarin.

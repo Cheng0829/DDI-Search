@@ -3,21 +3,34 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ddisearch.mapper.DDIMapper">
 
-    <insert id="batchInsertDDI" parameterType="java.util.List">
-        INSERT INTO cjk.test1_ddis (drugA_name, drugB_name, ddi_type, description, confidence)
+    <insert id="batchInsertAllDDI" parameterType="java.util.List">
+        INSERT INTO cjk.all_ddi_info (drugA_name, drugB_name, ddi_type, description, confidence)
         VALUES
         <foreach collection="list" item="ddi" separator=",">
             (#{ddi.drugAName}, #{ddi.drugBName}, #{ddi.ddiType}, #{ddi.description}, #{ddi.confidence})
         </foreach>
     </insert>
 
-    <!-- 查询语句 -->
+    <insert id="batchInsertDDI" parameterType="java.util.List">
+        INSERT INTO cjk.ddi_info (drugA_name, drugB_name, ddi_type, description, confidence)
+        VALUES
+        <foreach collection="list" item="ddi" separator=",">
+            (#{ddi.drugAName}, #{ddi.drugBName}, #{ddi.ddiType}, #{ddi.description}, #{ddi.confidence})
+        </foreach>
+    </insert>
+
     <select id="selectDDIByName" parameterType="map" resultType="com.ddisearch.entity.DDI">
-        SELECT DISTINCT drugA_name, drugB_name, ddi_type, description, confidence FROM cjk.test1_ddis WHERE drugA_name = #{drugAName} AND drugB_name = #{drugBName}
+        SELECT DISTINCT drugA_name, drugB_name, ddi_type, description, confidence FROM cjk.all_ddi_info WHERE drugA_name = #{drugAName} AND drugB_name = #{drugBName}
     </select>
 
-<!--    <select id="selectDrugInfoByName" parameterType="String" resultType="com.ddisearch.entity.Drug">-->
-<!--        SELECT * FROM test1_drugs WHERE name = #{name}-->
-<!--    </select>-->
+    <select id="batchSelectDDI" parameterType="map" resultType="com.ddisearch.entity.batchDDIResult">
+        SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription FROM cjk.all_ddi_info
+        ORDER BY drugA_name, drugB_name
+        LIMIT #{limit} OFFSET #{offset};
+    </select>
+
+    <select id="batchSelectAllDDI" resultType="com.ddisearch.entity.batchDDIResult">
+        SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription FROM cjk.all_ddi_info
+    </select>
 
 </mapper>
