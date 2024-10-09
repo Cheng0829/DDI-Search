@@ -1,6 +1,7 @@
 from threading import Thread
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer
 from flask import Flask, request
+from flask_cors import CORS
 
 # 请简要回答（不要超过100个字）：为什么药物Trioxsalen可能增加Verteporfin的光敏活性？
 
@@ -59,6 +60,7 @@ def llm(query):
 
 if __name__ == "__main__":
     app = Flask(__name__)
+    CORS(app)
     # 定义路由和视图函数
     # http://127.0.0.1:829/llm?query=请简要回答（不要超过100个字）：为什么药物Trioxsalen可能增加Verteporfin的光敏活性？
     # http://127.0.0.1:829/llm?drugA=Trioxsalen&drugB=Verteporfin&type=1&ddi=description

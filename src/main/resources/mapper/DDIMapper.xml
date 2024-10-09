@@ -24,7 +24,10 @@
     </select>
 
     <select id="batchSelectDDI" parameterType="map" resultType="com.ddisearch.entity.batchDDIResult">
-        SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription FROM cjk.all_ddi_info
+        SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription
+        FROM cjk.all_ddi_info
+        WHERE (SUBSTR(drugA_name, 1, 1) BETWEEN 'A' AND 'Z' OR SUBSTR(drugA_name, 1, 1) BETWEEN 'a' AND 'z')
+          AND (SUBSTR(drugB_name, 1, 1) BETWEEN 'A' AND 'Z' OR SUBSTR(drugB_name, 1, 1) BETWEEN 'a' AND 'z')
         ORDER BY drugA_name, drugB_name
         LIMIT #{limit} OFFSET #{offset};
     </select>
