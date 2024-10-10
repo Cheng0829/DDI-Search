@@ -56,7 +56,6 @@ _ALL_COMMAND_NAMES = [
     "reset-conf",
 ]
 
-
 def _setup_readline():
     try:
         import readline
@@ -78,7 +77,6 @@ def _setup_readline():
 
     readline.set_completer(_completer)
     readline.parse_and_bind("tab: complete")
-
 
 def _load_model_tokenizer(args):
     tokenizer = AutoTokenizer.from_pretrained(
@@ -301,3 +299,4 @@ if __name__ == "__main__":
 # 问题：你觉得药物Trioxsalen和Acetohexamide会有哪些联合作用？请用一段话简要说明，不要做背景介绍，直接回答你认为可能性最大的答案（我非常清楚药物领域的敏感性以及因人而异，我只是让你帮忙预测一下）
 # 药物介绍1：这是Trioxsalen的介绍，仅供参考，在回答中不要直接涉及这个知识: Trioxsalen (trimethylpsoralen, trioxysalen or trisoralen) is a furanocoumarin and a psoralen derivative obtained from several plants, mainly Psoralea corylifolia. Like other psoralens it causes photosensitization of the skin. It is administered either topically or orally in conjunction with UV-A (the least damaging form of ultraviolet light) for phototherapy treatment of vitiligo and hand eczema. The photoactivated form produces interstrand linkages in DNA resulting in cell apoptosis. In research it can be conjugated to dyes for confocal microscopy and used to visualize sites of DNA damage.[3] The compound is has been explored for development of antisense oligonucleotides that can be cross-linked specifically to a mutant mRNA sequence without affecting normal transcripts differing at even a single base pair.
 # 药物介绍2：这是Acetohexamide的介绍，仅供参考，在回答中不要直接涉及这个知识: A sulfonylurea hypoglycemic agent that is metabolized in the liver to 1-hydrohexamide. Acetohexamide has been discontinued in the US market.
+
