@@ -1,127 +1,22 @@
-2024-10-10 11:26:05.133  INFO 41264 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 41264 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:26:05.139  INFO 41264 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:26:05.737 ERROR 41264 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:26:05.871  INFO 41264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:26:05.875  INFO 41264 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:26:05.876  INFO 41264 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:26:05.979  INFO 41264 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:26:05.979  INFO 41264 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 813 ms
-2024-10-10 11:26:06.352  INFO 41264 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:26:06.438  INFO 41264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:26:06.444  INFO 41264 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.568 seconds (JVM running for 2.473)
-2024-10-10 11:26:46.456  INFO 41264 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:26:46.456  INFO 41264 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:26:46.457  INFO 41264 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-10-10 11:26:46.510  INFO 41264 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:26:46.601  INFO 41264 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:26:46.745  INFO 41264 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 249 ms, called 1 times.
-2024-10-10 11:27:10.816  INFO 41264 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.handleSearchJson(..) executed in 4 ms, called 1 times.
-2024-10-10 11:27:44.311  INFO 41264 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.handleSearchJson(..) executed in 5 ms, called 2 times.
-2024-10-10 11:28:20.476  INFO 41264 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.handleSearchJson(..) executed in 5 ms, called 3 times.
-2024-10-10 11:30:42.481  INFO 41264 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 12012 ms, called 2 times.
-2024-10-10 11:31:39.068  INFO 41264 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-10 11:31:39.073  INFO 41264 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-10 11:31:41.616  INFO 6952 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 6952 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:31:41.618  INFO 6952 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:31:42.035 ERROR 6952 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:31:42.130  INFO 6952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:31:42.134  INFO 6952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:31:42.134  INFO 6952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:31:42.216  INFO 6952 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:31:42.216  INFO 6952 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 580 ms
-2024-10-10 11:31:42.506  INFO 6952 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:31:42.581  INFO 6952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:31:42.586  INFO 6952 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.13 seconds (JVM running for 1.822)
-2024-10-10 11:31:49.743  INFO 6952 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:31:49.743  INFO 6952 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:31:49.744  INFO 6952 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-10-10 11:31:49.777  INFO 6952 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:31:49.837  INFO 6952 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:31:49.960  INFO 6952 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 195 ms, called 1 times.
-2024-10-10 11:32:01.785  INFO 6952 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 106 ms, called 2 times.
-2024-10-10 11:32:15.539  INFO 6952 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 11669 ms, called 3 times.
-2024-10-10 11:37:33.579  INFO 6952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-10 11:37:33.584  INFO 6952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-10 11:37:35.508  INFO 28284 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 28284 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:37:35.510  INFO 28284 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:37:35.992 ERROR 28284 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:37:36.094  INFO 28284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:37:36.098  INFO 28284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:37:36.098  INFO 28284 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:37:36.170  INFO 28284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:37:36.171  INFO 28284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 644 ms
-2024-10-10 11:37:36.443  INFO 28284 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:37:36.516  INFO 28284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:37:36.522  INFO 28284 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.168 seconds (JVM running for 1.876)
-2024-10-10 11:37:44.540  INFO 28284 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:37:44.540  INFO 28284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:37:44.541  INFO 28284 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-10-10 11:37:44.578  INFO 28284 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:37:44.650  INFO 28284 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:37:44.775  INFO 28284 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 210 ms, called 1 times.
-2024-10-10 11:37:58.438  INFO 28284 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 11937 ms, called 2 times.
-2024-10-10 11:39:06.731  INFO 28284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-10 11:39:06.735  INFO 28284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-10 11:39:08.665  INFO 26536 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 26536 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:39:08.667  INFO 26536 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:39:09.069 ERROR 26536 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:39:09.166  INFO 26536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:39:09.171  INFO 26536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:39:09.171  INFO 26536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:39:09.239  INFO 26536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:39:09.239  INFO 26536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 554 ms
-2024-10-10 11:39:09.503  INFO 26536 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:39:09.578  INFO 26536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:39:09.582  INFO 26536 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.074 seconds (JVM running for 1.811)
-2024-10-10 11:39:15.905  INFO 26536 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:39:15.905  INFO 26536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:39:15.905  INFO 26536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-10-10 11:39:15.939  INFO 26536 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:39:16.002  INFO 26536 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:39:16.123  INFO 26536 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 194 ms, called 1 times.
-2024-10-10 11:39:17.968  INFO 26536 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 119 ms, called 2 times.
-2024-10-10 11:39:46.862  INFO 26536 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 101 ms, called 3 times.
-2024-10-10 11:40:01.040  INFO 26536 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 124 ms, called 4 times.
-2024-10-10 11:40:54.316  INFO 26536 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 121 ms, called 5 times.
-2024-10-10 11:53:46.288  INFO 26536 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 110 ms, called 6 times.
-2024-10-10 11:54:07.953  INFO 26536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-10 11:54:07.958  INFO 26536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-10 11:54:09.946  INFO 38052 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 38052 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:54:09.948  INFO 38052 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:54:10.367 ERROR 38052 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:54:10.465  INFO 38052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:54:10.469  INFO 38052 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:54:10.469  INFO 38052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:54:10.540  INFO 38052 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:54:10.540  INFO 38052 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 575 ms
-2024-10-10 11:54:10.817  INFO 38052 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:54:10.892  INFO 38052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:54:10.896  INFO 38052 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.111 seconds (JVM running for 1.821)
-2024-10-10 11:54:16.365  INFO 38052 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:54:16.365  INFO 38052 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:54:16.365  INFO 38052 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-10-10 11:54:16.402  INFO 38052 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:54:16.463  INFO 38052 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:54:16.584  INFO 38052 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 192 ms, called 1 times.
-2024-10-10 11:54:30.380  INFO 38052 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 11891 ms, called 2 times.
-2024-10-10 11:54:45.232  INFO 38052 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 97 ms, called 3 times.
-2024-10-10 11:57:42.235  INFO 38052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-10 11:57:42.241  INFO 38052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-10 11:57:44.254  INFO 28496 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 28496 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-10 11:57:44.256  INFO 28496 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-10 11:57:44.680 ERROR 28496 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-10 11:57:44.778  INFO 28496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-10 11:57:44.782  INFO 28496 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-10 11:57:44.782  INFO 28496 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-10 11:57:44.856  INFO 28496 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-10 11:57:44.856  INFO 28496 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 582 ms
-2024-10-10 11:57:45.132  INFO 28496 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-10 11:57:45.209  INFO 28496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-10 11:57:45.215  INFO 28496 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.124 seconds (JVM running for 1.87)
-2024-10-10 11:57:48.200  INFO 28496 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-10 11:57:48.200  INFO 28496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-10 11:57:48.202  INFO 28496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-10-10 11:57:48.236  INFO 28496 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10 11:57:48.300  INFO 28496 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10 11:57:48.344  INFO 28496 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 118 ms, called 1 times.
-2024-10-10 11:58:08.550  INFO 28496 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 2459 ms, called 2 times.
+2024-10-15 09:42:33.968  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 3056 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-10-15 09:42:33.972  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-15 09:42:34.602 ERROR 3056 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2024-10-15 09:42:34.750  INFO 3056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-10-15 09:42:34.757  INFO 3056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-15 09:42:34.757  INFO 3056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2024-10-15 09:42:34.871  INFO 3056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-15 09:42:34.871  INFO 3056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 874 ms
+2024-10-15 09:42:35.292  INFO 3056 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-10-15 09:42:35.396  INFO 3056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-10-15 09:42:35.402  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 1.611 seconds (JVM running for 2.55)
+2024-10-15 09:48:54.384  INFO 3056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-15 09:48:54.384  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-15 09:48:54.385  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-15 09:48:54.429  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-15 09:48:55.010  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-15 09:48:55.071  INFO 3056 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 655 ms, called 1 times.
+2024-10-15 09:48:55.106  INFO 3056 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 6 ms, called 2 times.
+2024-10-15 09:49:05.013  INFO 3056 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.handleSearchJson(..) executed in 10 ms, called 1 times.
+2024-10-15 09:51:39.417  INFO 3056 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 5 ms, called 3 times.
+2024-10-15 09:56:24.423  INFO 3056 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 5 ms, called 4 times.
+2024-10-15 09:58:19.421  INFO 3056 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 4 ms, called 5 times.

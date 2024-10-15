@@ -43,7 +43,7 @@ def llm(query):
         resume_download=True,
     ).eval()
     
-    model.generation_config.max_new_tokens = 256  # For chat.
+    model.generation_config.max_new_tokens = 2048  # For chat.
 
     while True:
         print(f"\nUser: {query}")
@@ -60,22 +60,23 @@ def llm(query):
 
 if __name__ == "__main__":
     app = Flask(__name__)
-    CORS(app)
+    CORS(app) # 设置跨域访问
     # 定义路由和视图函数
-    # http://127.0.0.1:829/llm?query=请简要回答（不要超过100个字）：为什么药物Trioxsalen可能增加Verteporfin的光敏活性？
-    # http://127.0.0.1:829/llm?drugA=Trioxsalen&drugB=Verteporfin&type=1&ddi=description
+    # http://127.0.0.1:8290/llm?drugAName=${drugAName}&drugADescription=${drugADescription}&drugBDescription=${drugBDescription}&drugBName=${drugBName}&type=1&ddiDescription=${ddiDescription}
     @app.route('/llm')
     def web():
-        drugA_name = request.args.get('drugA', default='', type=str)
-        drugB_name = request.args.get('drugB', default='', type=str)
+        drugA_name = request.args.get('drugAName', default='', type=str)
+        drugA_description = request.args.get('drugADescription', default='', type=str)
+        drugB_name = request.args.get('drugBName', default='', type=str)
+        drugB_description = request.args.get('drugADescription', default='', type=str)
         query_type = request.args.get('type', default='', type=int)
-        ddi = request.args.get('description', default='', type=str)
+        ddi_description = request.args.get('ddiDescription', default='', type=str)
         if(drugA_name == '' or drugB_name == '' or query_type not in [1, 2]):
             return "服务器繁忙，请稍后再试~"
         if(query_type == 1):
             # 查询已有DDI的原因
-            query = f"请简要回答（不要超过100个字）：为什么药物{drugA_name}和{drugB_name}之间存在如下联合作用：{ddi}？"
+            query = f"请简要回答（不要超过100个字）：为什么药物{drugA_name}和{drugB_name}之间存在如下联合作用：{ddi_description}？其中，两个药物的背景介绍如下：{drugA_description}，{drugB_description}."
         else:
-            query = f"请简要回答（不要超过100个字）药物{drugA_name}和{drugB_name}之间可能存在哪些联合作用以及原因。"
+            query = f"请简要回答（不要超过100个字）药物{drugA_name}和{drugB_name}之间可能存在哪些联合作用以及原因。其中，两个药物的背景介绍如下：{drugA_description}，{drugB_description}."
         return llm(query)
     app.run(host='127.0.0.1', port=8290)
