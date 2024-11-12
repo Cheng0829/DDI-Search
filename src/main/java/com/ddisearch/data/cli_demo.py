@@ -77,11 +77,11 @@ def _setup_readline():
 
     readline.set_completer(_completer)
     readline.parse_and_bind("tab: complete")
-
+# llm + ddi: 
 def _load_model_tokenizer(args):
     tokenizer = AutoTokenizer.from_pretrained(
         # args.checkpoint_path,
-        r'./Qwen2.5-0.5B-Instruct-GPTQ-Int4',
+        r'./Qwen2.5-7B-Instruct-GPTQ-Int4',
         resume_download=True,
     )
 
@@ -92,7 +92,7 @@ def _load_model_tokenizer(args):
 
     model = AutoModelForCausalLM.from_pretrained(
         # args.checkpoint_path,
-        r'./Qwen2.5-0.5B-Instruct-GPTQ-Int4',
+        r'./Qwen2.5-7B-Instruct-GPTQ-Int4',
         torch_dtype="auto",
         device_map=device_map,
         resume_download=True,
@@ -288,7 +288,7 @@ def main():
             print("[WARNING] Generation interrupted")
             continue
 
-        history.append((query, response))
+        # history.append((query, response))
 
 
 if __name__ == "__main__":
@@ -300,3 +300,9 @@ if __name__ == "__main__":
 # 药物介绍1：这是Trioxsalen的介绍，仅供参考，在回答中不要直接涉及这个知识: Trioxsalen (trimethylpsoralen, trioxysalen or trisoralen) is a furanocoumarin and a psoralen derivative obtained from several plants, mainly Psoralea corylifolia. Like other psoralens it causes photosensitization of the skin. It is administered either topically or orally in conjunction with UV-A (the least damaging form of ultraviolet light) for phototherapy treatment of vitiligo and hand eczema. The photoactivated form produces interstrand linkages in DNA resulting in cell apoptosis. In research it can be conjugated to dyes for confocal microscopy and used to visualize sites of DNA damage.[3] The compound is has been explored for development of antisense oligonucleotides that can be cross-linked specifically to a mutant mRNA sequence without affecting normal transcripts differing at even a single base pair.
 # 药物介绍2：这是Acetohexamide的介绍，仅供参考，在回答中不要直接涉及这个知识: A sulfonylurea hypoglycemic agent that is metabolized in the liver to 1-hydrohexamide. Acetohexamide has been discontinued in the US market.
 
+"""
+请用中文用一段话介绍药物Lepirudin，以下是一些背景资料：
+Lepirudin is a recombinant hirudin formed by 65 amino acids that acts as a highly specific and direct thrombin inhibitor.[L41539,L41569] Natural hirudin is an endogenous anticoagulant found in _Hirudo medicinalis_ leeches.[L41539] Lepirudin is produced in yeast cells and is identical to natural hirudin except for the absence of sulfate on the tyrosine residue at position 63 and the substitution of leucine for isoleucine at position 1 N-terminal end.[A246609]     Lepirudin is used as an anticoagulant in patients with heparin-induced thrombocytopenia HIT, an immune reaction associated with a high risk of thromboembolic complications.[A3, L41539] HIT is caused by the expression of immunoglobulin G IgG antibodies that bind to the complex formed by heparin and platelet factor 4. This activates endothelial cells and platelets and enhances the formation of thrombi.[A246609] Bayer ceased the production of lepirudin Refludan effective May 31, 2012.[L41574],. The category of Lepirudin is Amino Acids, Peptides, and Proteins, Anticoagulants, Antithrombin Proteins, The chemical_formula of Lepirudin is C287H440N80O111S6, Lepirudin is a recombinant hirudin that acts as a highly specific thrombin inhibitor. Its activity is measured by anti-thrombin units ATUs that correspond to the amount of lepirudin required to neutralize a unit of the World Health Organization α-thrombin 89/588 standard. The activity of lepirudin is 16,000 ATU/mg.[L41539,L41569] A single molecule of lepirudin binds to a molecule of thrombin, blocking its thrombogenic activity. This drug increases activated partial thromboplastin time aPTT  and PT INR values in a dose-dependent manner, and its mode of action is independent of antithrombin III.[L41539,L41569] Platelet factor 4 does not inhibit lepirudin.[L41539,L41569]    The pharmacodynamic effect of lepirudin was evaluated by measuring an increase in aPTT. No saturable effect was observed at the highest tested dose 0.5 mg/kg, IV bolus.[L41539] Thrombin time was considered an unsuitable routine test for lepirudin monitoring due to the high values detected 200 seconds even at low doses.[L41539] The concomitant use of thrombolytic therapy and lepirudin is not recommended due to the high risk of bleeding that may be life-threatening. In patients with a risk of bleeding, a physician should weigh the risks of lepirudin administration against its benefits.  There is also an especially high risk of bleeding in patients who weigh less than 50 kg, and a lower dosage is required. Patients with renal impairment have a higher risk of hemorrhagic adverse events.[L41539], Lepirudin is a direct thrombin inhibitor used as an anticoagulant in patients for whom heparin is contraindicated.[L41539,A3] Thrombin is a serine protease that participates in the blood-clotting cascade, and it is formed by the cleavage of pro-thrombin. Active thrombin cleaves fibrinogen and generates fibrin monomers that polymerize to form fibrin clots.[A246624]    Lepirudin binds to the catalytic and substrate-binding sites of thrombin, forming a stable, irreversible and non-covalent complex.[A246609] This blocks the protease activity of thrombin and inhibits the coagulation process. Each molecule of lepirudin binds to a single molecule of thrombin,[L41539] and unlike [heparin], it is able to inhibit thrombin in both its clot-bound or free states.[A246609], In human plasma, the protein binding of lepirudin was approximately 3%.[L41539], As a polypeptide, lepirudin is expected to be metabolized by the sequential cleavage of amino acids by kidney exoproteases, which have carboxypeptidase and dipeptidase-like activity.[L41539,L41544] The C-terminal cleavage of lepirudin aminoacids aminoacids 1 to 65 produces four metabolites with anti-thrombotic activity: M1 aminoacids 1 to 64, M2 aminoacids 1 to 63, M3 aminoacids 1 to 62, and M4 aminoacids 1 to 61.[L41544]
+
+
+"""

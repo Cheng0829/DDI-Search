@@ -1,17 +1,61 @@
-2024-10-22 10:34:23.648  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 1.8.0_131 on CJK-ASUS with PID 3056 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-10-22 10:34:23.652  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-22 10:34:25.713 ERROR 3056 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2024-10-22 10:34:26.722  INFO 3056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-10-22 10:34:26.771  INFO 3056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-22 10:34:26.771  INFO 3056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-2024-10-22 10:34:27.198  INFO 3056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-22 10:34:27.198  INFO 3056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3472 ms
-2024-10-22 10:34:28.393  INFO 3056 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-10-22 10:34:28.693  INFO 3056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-10-22 10:34:28.699  INFO 3056 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 5.653 seconds (JVM running for 7.044)
-2024-10-22 10:34:28.940  INFO 3056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-22 10:34:28.940  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-22 10:34:28.941  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-10-22 10:34:28.997  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-22 10:34:29.135  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-22 10:34:29.190  INFO 3056 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesSearch(..) executed in 208 ms, called 1 times.
+2024-11-12 16:11:57.679  INFO 17340 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 21.0.5 on CJK-ASUS with PID 17340 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-11-12 16:11:57.692  INFO 17340 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-11-12 16:11:58.102  WARN 17340 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: file [D:\Java\code\DDI-Search\target\classes\com\ddisearch\DdiSearchApplication.class]; nested exception is org.springframework.core.NestedIOException: ASM ClassReader failed to parse class file - probably due to a new Java class file version that isn't supported yet: file [D:\Java\code\DDI-Search\target\classes\com\ddisearch\DdiSearchApplication.class]; nested exception is java.lang.IllegalArgumentException: Unsupported class file major version 65
+2024-11-12 16:11:58.345 ERROR 17340 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: file [D:\Java\code\DDI-Search\target\classes\com\ddisearch\DdiSearchApplication.class]; nested exception is org.springframework.core.NestedIOException: ASM ClassReader failed to parse class file - probably due to a new Java class file version that isn't supported yet: file [D:\Java\code\DDI-Search\target\classes\com\ddisearch\DdiSearchApplication.class]; nested exception is java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:457) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:316) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:276) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:295) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.6.13.jar:2.6.13]
+	at com.ddisearch.DdiSearchApplication.main(DdiSearchApplication.java:14) ~[classes/:na]
+Caused by: org.springframework.core.NestedIOException: ASM ClassReader failed to parse class file - probably due to a new Java class file version that isn't supported yet: file [D:\Java\code\DDI-Search\target\classes\com\ddisearch\DdiSearchApplication.class]; nested exception is java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:60) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:123) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:429) ~[spring-context-5.3.23.jar:5.3.23]
+	... 20 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:199) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:180) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:166) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:287) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:57) ~[spring-core-5.3.23.jar:5.3.23]
+	... 24 common frames omitted
+
+2024-11-12 16:18:57.804  INFO 39568 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 21.0.5 on CJK-ASUS with PID 39568 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-11-12 16:18:57.808  INFO 39568 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-11-12 16:18:58.562 ERROR 39568 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2024-11-12 16:18:58.786  INFO 39568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-11-12 16:18:58.796  INFO 39568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-12 16:18:58.796  INFO 39568 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2024-11-12 16:18:58.911  INFO 39568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-12 16:18:58.911  INFO 39568 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1062 ms
+2024-11-12 16:18:59.412  INFO 39568 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-12 16:18:59.563  INFO 39568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-12 16:18:59.569  INFO 39568 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 2.058 seconds (JVM running for 2.685)
+2024-11-12 16:19:22.865  INFO 39568 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-12 16:19:22.866  INFO 39568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-12 16:19:22.866  INFO 39568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-12 16:19:22.909  INFO 39568 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-12 16:19:23.091  INFO 39568 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-12 16:19:23.157  INFO 39568 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.handleSearchJson(..) executed in 267 ms, called 1 times.
+2024-11-12 16:19:34.573  INFO 39568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-12 16:19:34.575  INFO 39568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

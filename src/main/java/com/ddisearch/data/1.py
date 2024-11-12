@@ -3,7 +3,7 @@
 # @time    : 2024/9/29 21:22
 
 
-import requests, json, random, time, csv
+import requests, json, random, time, csv, re
 from bs4 import BeautifulSoup
 from rdkit import Chem
 from rdkit.Chem import Draw
@@ -129,3 +129,9 @@ def gaixie():
         json.dump(new_data, file, indent=4)
 
 # gaixie()
+def extract_numbers_from_string(s):
+    # 使用正则表达式匹配所有的数字
+    numbers = re.findall(r'\d+', s)
+    # 将匹配到的字符串转换成整数列表
+    return [int(num) for num in numbers]
+print(extract_numbers_from_string('qwexz'))
