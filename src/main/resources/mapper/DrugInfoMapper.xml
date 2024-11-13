@@ -44,4 +44,11 @@
         SELECT DISTINCT order_id, drugbank_id, name, category, chemical_formula, smiles, description, related_drugs, pharmacodynamics, action_mechanism, protein_binding, metabolism FROM cjk.all_drug_info
     </select>
 
+    <select id="batchSelectDrug" parameterType="map" resultType="com.ddisearch.entity.batchDrugResult">
+        SELECT di.order_id AS orderId, di.drugbank_id AS drugbankId, di.name AS name, di.category AS category,
+               di.chemical_formula AS chemicalFormula, di.smiles AS smiles, di.description AS description, di.related_drugs AS relatedDrugs,
+               di.pharmacodynamics AS pharmacodynamics, di.action_mechanism AS actionMechanism, di.protein_binding AS proteinBinding, di.metabolism AS metabolism
+        FROM cjk.all_drug_info di
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
 </mapper>

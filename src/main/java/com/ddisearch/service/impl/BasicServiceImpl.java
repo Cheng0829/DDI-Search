@@ -5,6 +5,8 @@ package com.ddisearch.service.impl;
  * @date 2024/9/27 18:10
  */
 import java.util.*;
+
+import com.ddisearch.entity.batchDrugResult;
 import org.apache.commons.csv.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -159,18 +161,43 @@ public class BasicServiceImpl implements BasicService {
         return result;
     }
 
-    public ArrayList<Map<String, String>> pagesSearch(int index, int limit){
+    public ArrayList<Map<String, String>> batchSelectDrug(int index, int limit){
+        int offset = (index-1)*limit;
+        ArrayList<batchDrugResult> batchDrugs = drugInfoMapper.batchSelectDrug(offset, limit);
+        ArrayList<Map<String, String>> result = new ArrayList<>();
+
+        for(batchDrugResult drug : batchDrugs){
+            // ddi: [药物A1, 药物B1, DDI描述1]
+            Map<String, String> drugInfoMap = new HashMap<>();
+            drugInfoMap.put("name", drug.getName());
+            drugInfoMap.put("description", drug.getDescription());
+            result.add(drugInfoMap);
+        }
+        return result;
+    }
+
+    public ArrayList<Map<String, String>> pagesDDISearch(int index, int limit){
         ArrayList<Map<String, String>> result = batchSelectDDI(index, limit);
         return result;
     }
 
-    public Map<String, Object> handleSearch(String drugAName, String drugBName) {
+    public ArrayList<Map<String, String>> pagesDrugSearch(int index, int limit){
+        ArrayList<Map<String, String>> result = batchSelectDrug(index, limit);
+        return result;
+    }
+
+    public Map<String, Object> handleDDISearch(String drugAName, String drugBName) {
         // drugA的不为空判断逻辑由前端控制
         if(drugBName.isEmpty()) {
             return singleDrugSearch(drugAName);
         } else {
             return twoDrugSearch(drugAName, drugBName);
         }
+    }
+
+    public Drug handleDrugSearch(String drugName) {
+        Drug drug = selectDrugInfoByName(drugName);
+        return drug;
     }
 
     // 查找单个药物

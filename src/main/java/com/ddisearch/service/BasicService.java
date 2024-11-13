@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 public interface BasicService {
-    Map<String, Object> handleSearch(String drugAName, String drugBName);
+    Map<String, Object> handleDDISearch(String drugAName, String drugBName);
+    Drug handleDrugSearch(String drugName);
     String batchInsertDrugInfo();
     String batchInsertDDI();
-    ArrayList<Map<String, String>> pagesSearch(int index, int limit);
+    ArrayList<Map<String, String>> pagesDDISearch(int index, int limit);
+    ArrayList<Map<String, String>> pagesDrugSearch(int index, int limit);
     String batchInsertAllDrugInfoAndDDI();
     ArrayList<Drug> batchSelectAllDrug();
     ArrayList<batchDDIResult> batchSelectAllDDI();

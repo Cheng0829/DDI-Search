@@ -36,7 +36,6 @@
         ORDER BY ai.drugA_name, ai.drugB_name;
     </select>
 
-
     <select id="batchSelectAllDDI" resultType="com.ddisearch.entity.batchDDIResult">
         SELECT DISTINCT drugA_name AS drugAName, drugB_name AS drugBName, description AS ddiDescription
         FROM cjk.all_ddi_info_demo
