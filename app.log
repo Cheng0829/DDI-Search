@@ -804,3 +804,101 @@ org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or nu
 2024-11-14T11:40:23.662+08:00  INFO 39484 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 3 times.
 2024-11-14T11:41:18.610+08:00  INFO 39484 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 4 ms, called 3 times.
 2024-11-14T11:41:39.564+08:00  INFO 39484 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 20 ms, called 1 times.
+2024-11-14T14:30:17.349+08:00  INFO 39484 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 4 times.
+2024-11-14T14:30:17.349+08:00  INFO 39484 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 4 times.
+2024-11-14T14:30:19.335+08:00  INFO 39484 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 5 times.
+2024-11-14T14:30:19.335+08:00  INFO 39484 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 5 times.
+2024-11-14T14:30:27.344+08:00  INFO 39484 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 6 times.
+2024-11-14T14:30:27.345+08:00  INFO 39484 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 6 times.
+2024-11-14T14:30:37.343+08:00  INFO 39484 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 3 ms, called 7 times.
+2024-11-14T14:30:37.343+08:00  INFO 39484 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 7 times.
+2024-11-14T14:30:56.329+08:00  INFO 39484 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 8 times.
+2024-11-14T14:30:56.329+08:00  INFO 39484 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 8 times.
+2024-11-14T14:31:17.339+08:00  INFO 39484 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 1 ms, called 9 times.
+2024-11-14T14:31:17.339+08:00  INFO 39484 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 1 ms, called 9 times.
+2024-11-14T14:32:39.722+08:00  INFO 39484 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 10 times.
+2024-11-14T14:32:39.726+08:00  INFO 39484 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 10 times.
+2024-11-14T14:32:39.728+08:00  INFO 39484 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 11 times.
+2024-11-14T14:32:39.731+08:00  INFO 39484 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 11 times.
+2024-11-14T14:32:39.754+08:00  INFO 39484 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 12 times.
+2024-11-14T14:32:39.755+08:00  INFO 39484 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 12 times.
+2024-11-14T14:32:39.793+08:00  INFO 39484 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 3 ms, called 13 times.
+2024-11-14T14:32:39.796+08:00  INFO 39484 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 6 ms, called 13 times.
+2024-11-14T14:32:39.829+08:00  INFO 39484 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 14 times.
+2024-11-14T14:32:39.829+08:00  INFO 39484 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 1 ms, called 14 times.
+2024-11-14T14:32:39.864+08:00  INFO 39484 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 15 times.
+2024-11-14T14:32:39.865+08:00  INFO 39484 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 15 times.
+2024-11-14T14:32:48.085+08:00  INFO 39484 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 16 times.
+2024-11-14T14:32:48.086+08:00  INFO 39484 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 1 ms, called 16 times.
+2024-11-14T14:32:48.093+08:00  INFO 39484 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 3 ms, called 17 times.
+2024-11-14T14:32:48.094+08:00  INFO 39484 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 1 ms, called 17 times.
+2024-11-14T14:33:39.351+08:00  INFO 39484 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 18 times.
+2024-11-14T14:33:39.352+08:00  INFO 39484 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 18 times.
+2024-11-14T14:35:31.333+08:00  INFO 39484 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 19 times.
+2024-11-14T14:35:31.333+08:00  INFO 39484 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 19 times.
+2024-11-14T14:36:25.332+08:00  INFO 39484 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 20 times.
+2024-11-14T14:36:25.332+08:00  INFO 39484 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 20 times.
+2024-11-14T14:38:43.344+08:00  INFO 39484 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 1 ms, called 21 times.
+2024-11-14T14:38:43.344+08:00  INFO 39484 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 1 ms, called 21 times.
+2024-11-14T15:42:47.317+08:00  INFO 39484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-14T15:42:47.326+08:00  INFO 39484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-14T15:42:52.273+08:00  INFO 50268 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 21.0.5 with PID 50268 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-11-14T15:42:52.277+08:00  INFO 50268 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-11-14T15:42:53.852+08:00  INFO 50268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-11-14T15:42:53.853+08:00  INFO 50268 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.34] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+2024-11-14T15:42:53.853+08:00  INFO 50268 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.34] using APR version [1.7.0].
+2024-11-14T15:42:53.857+08:00  INFO 50268 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2024-11-14T15:42:53.866+08:00  INFO 50268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-14T15:42:53.866+08:00  INFO 50268 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2024-11-14T15:42:53.955+08:00  INFO 50268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-14T15:42:53.955+08:00  INFO 50268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1608 ms
+2024-11-14T15:42:54.497+08:00  INFO 50268 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-14T15:42:54.723+08:00  INFO 50268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-14T15:42:54.731+08:00  INFO 50268 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 3.162 seconds (process running for 4.173)
+2024-11-14T15:43:04.833+08:00  INFO 50268 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-14T15:43:04.834+08:00  INFO 50268 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-14T15:43:04.835+08:00  INFO 50268 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-14T15:43:04.877+08:00  WARN 50268 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.ddisearch.controller.BasicController
+2024-11-14T15:43:04.900+08:00  INFO 50268 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-14T15:43:05.063+08:00  INFO 50268 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13c66aa3
+2024-11-14T15:43:05.070+08:00  INFO 50268 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-14T15:43:05.141+08:00  INFO 50268 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 257 ms, called 1 times.
+2024-11-14T15:43:19.216+08:00  INFO 50268 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 7 ms, called 1 times.
+2024-11-14T15:43:24.242+08:00  INFO 50268 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 8 ms, called 2 times.
+2024-11-14T15:43:38.370+08:00  INFO 50268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-14T15:43:38.386+08:00  INFO 50268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-14T15:43:44.058+08:00  INFO 49988 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 21.0.5 with PID 49988 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2024-11-14T15:43:44.062+08:00  INFO 49988 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-11-14T15:43:45.464+08:00  INFO 49988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-11-14T15:43:45.464+08:00  INFO 49988 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.34] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+2024-11-14T15:43:45.466+08:00  INFO 49988 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.34] using APR version [1.7.0].
+2024-11-14T15:43:45.468+08:00  INFO 49988 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2024-11-14T15:43:45.475+08:00  INFO 49988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-14T15:43:45.476+08:00  INFO 49988 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2024-11-14T15:43:45.556+08:00  INFO 49988 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-14T15:43:45.557+08:00  INFO 49988 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1437 ms
+2024-11-14T15:43:46.197+08:00  INFO 49988 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-14T15:43:46.401+08:00  INFO 49988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-14T15:43:46.409+08:00  INFO 49988 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 3.239 seconds (process running for 4.67)
+2024-11-14T15:43:49.538+08:00  INFO 49988 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-14T15:43:49.539+08:00  INFO 49988 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-14T15:43:49.539+08:00  INFO 49988 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-14T15:43:49.571+08:00  WARN 49988 --- [http-nio-8080-exec-1] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.ddisearch.controller.BasicController
+2024-11-14T15:43:49.621+08:00  INFO 49988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-14T15:43:49.934+08:00  INFO 49988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fa60677
+2024-11-14T15:43:49.936+08:00  INFO 49988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-14T15:43:49.975+08:00  INFO 49988 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 389 ms, called 1 times.
+2024-11-14T15:43:58.756+08:00  INFO 49988 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 9 ms, called 2 times.
+2024-11-14T15:49:54.404+08:00  INFO 49988 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 1 ms, called 1 times.
+2024-11-14T16:08:51.172+08:00  INFO 49988 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 3 ms, called 1 times.
+2024-11-14T16:08:51.172+08:00  INFO 49988 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 1 times.
+2024-11-14T16:08:51.187+08:00  INFO 49988 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 2 times.
+2024-11-14T16:08:51.187+08:00  INFO 49988 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 2 times.
+2024-11-14T16:09:13.537+08:00  INFO 49988 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 3 ms, called 3 times.
+2024-11-14T16:09:21.162+08:00  INFO 49988 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 1 ms, called 2 times.
+2024-11-14T16:31:56.736+08:00  INFO 49988 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 3 ms, called 3 times.
+2024-11-14T16:31:56.742+08:00  INFO 49988 --- [http-nio-8080-exec-5] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 2 ms, called 4 times.
+2024-11-14T16:32:00.816+08:00  INFO 49988 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 2 ms, called 3 times.
+2024-11-14T16:32:03.848+08:00  INFO 49988 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 1 ms, called 3 times.
+2024-11-14T16:32:03.852+08:00  INFO 49988 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 1 ms, called 4 times.
+2024-11-14T16:32:09.414+08:00  INFO 49988 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 3 ms, called 4 times.

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Service
 public interface BasicService {
     Map<String, Object> handleDDISearch(String drugAName, String drugBName);
-    Drug handleDrugSearch(String drugName);
+    Map<String, Object> handleDrugSearch(String drugName);
     String batchInsertDrugInfo();
     String batchInsertDDI();
     ArrayList<Map<String, String>> pagesDDISearch(int index, int limit);

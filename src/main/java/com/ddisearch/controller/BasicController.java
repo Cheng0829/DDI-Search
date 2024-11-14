@@ -87,7 +87,7 @@ public class BasicController {
 
     @GetMapping("/search/drug/{drugName}")
     @ResponseBody
-    public Drug handleDrugSearch(@PathVariable String drugName) {
+    public Map<String, Object> handleDrugSearch(@PathVariable String drugName) {
         return basicService.handleDrugSearch(drugName);
     }
 
