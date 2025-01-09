@@ -47,7 +47,6 @@ public class DDI {
         } else {
             this.ddiType = ddiTypeOrDescripton;
         }
-
     }
 
     public String getDescription() {

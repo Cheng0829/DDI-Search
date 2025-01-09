@@ -4,40 +4,33 @@ package com.ddisearch.controller;
  * @author Junkai Cheng
  * @date 2024/9/27 18:10
  */
+import java.io.*;
+import java.util.*;
+import java.util.logging.Logger;
 
-import com.ddisearch.entity.DDI;
+import com.ddisearch.service.BasicService;
 import com.ddisearch.entity.DDITriplet;
 import com.ddisearch.entity.Drug;
 import com.ddisearch.entity.batchDDIResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.ddisearch.service.BasicService;
 
-import java.io.*;
-import java.util.*;
-
-/**
- * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
- */
 @CrossOrigin
 @RestController
 public class BasicController {
 
-    @Autowired
-    private BasicService basicService;
+    private final BasicService basicService;
 
     @Autowired
     public BasicController(BasicService basicService) {
         this.basicService = basicService;
     }
 
+    private static final Logger fileReadLogger = Logger.getLogger(BasicController.class.getName());
+    private static final Logger fileWriteLogger = Logger.getLogger(BasicController.class.getName());
 
     // http://127.0.0.1:8080/LLM/DDI/No/111&222
     @GetMapping("/LLM/DDI/No/{drugAName}&{drugBName}")
@@ -123,13 +116,13 @@ public class BasicController {
 
         // 准备两个 TreeMap 来存储数据并保持有序
         TreeMap<String, String> node2id = new TreeMap<>(Comparator.comparingInt(s -> Integer.parseInt(s.substring(2))));
-        TreeMap<String, String> node2idReverse = new TreeMap<>(Comparator.comparingInt(s -> Integer.parseInt(s)));
+        TreeMap<String, String> node2idReverse = new TreeMap<>(Comparator.comparingInt(Integer::parseInt));
 
         TreeMap<String, String> nameToDrugBankId = new TreeMap<>();
         TreeMap<String, String> drugBankIdToName = new TreeMap<>();
 
         TreeMap<String, String> nameToOrderId = new TreeMap<>();
-        TreeMap<String, String> orderIdToName = new TreeMap<>(Comparator.comparingInt(s -> Integer.parseInt(s)));
+        TreeMap<String, String> orderIdToName = new TreeMap<>(Comparator.comparingInt(Integer::parseInt));
 
         // 遍历 drugList 并填充两个 TreeMap
         for (Drug drug : drugList) {
@@ -166,7 +159,7 @@ public class BasicController {
             fwNameToOrderId.write(nameToOrderIdJson);
             fwOrderIdToName.write(orderIdToNameJson);
         } catch (IOException e) {
-            e.printStackTrace();
+            fileWriteLogger.warning("文件写入失败");
         }
     }
 
@@ -183,7 +176,7 @@ public class BasicController {
         // 读取并缓存 JSON 文件内容
         JSONObject nameToIdJson = readJsonFromFile(nameToIdFilePath);
         JSONObject ddiTypeTemplateJson = readJsonFromFile(ddiTypeTemplateFilePath);
-        int num = 0;
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             // 写入文件头
             writer.write("drug1\tdrug2\tLabel\n");
@@ -195,16 +188,14 @@ public class BasicController {
                 String description = ddi.getDdiDescription();
                 String drugAId = null;
                 String drugBId = null;
-                String ddiType = null;
+                String ddiType = "-1";
 
                 // 从缓存的 JSON 中获取 drugAId 和 drugBId
                 try {
+                    assert nameToIdJson != null;
                     drugAId = nameToIdJson.getString(drugAName);
                     drugBId = nameToIdJson.getString(drugBName);
-//                    num++;
                 } catch (Exception e) {
-//                    num++;
-//                    System.err.println("Failed to get drug IDs: " + drugAName + ", " + drugBName);
                     continue; // 跳过这条记录
                 }
 
@@ -213,6 +204,7 @@ public class BasicController {
 
                 // 查找匹配的 ddiType
                 int flag = 0;
+                assert ddiTypeTemplateJson != null;
                 for (String key : ddiTypeTemplateJson.keySet()) {
                     String value = ddiTypeTemplateJson.getString(key).toLowerCase();
                     if (value.equals(descriptionTemplate1) || value.equals(descriptionTemplate2)) {
@@ -232,7 +224,7 @@ public class BasicController {
                     ddiTriplets.add(ddiTriplet);
                 }
             }
-            Collections.sort(ddiTriplets, new Comparator<DDITriplet>() {
+            ddiTriplets.sort(new Comparator<DDITriplet>() {
                 @Override
                 public int compare(DDITriplet ddi1, DDITriplet ddi2) {
                     return Integer.compare(Integer.parseInt(ddi1.getDdiType()), Integer.parseInt(ddi2.getDdiType()));
@@ -246,7 +238,7 @@ public class BasicController {
                 writer.newLine(); // 换行
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            fileWriteLogger.warning("文件写入失败");
         }
     }
 
@@ -259,7 +251,7 @@ public class BasicController {
             }
             return new JSONObject(jsonBuilder.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            fileReadLogger.warning("文件读取失败");
             return null;
         }
     }

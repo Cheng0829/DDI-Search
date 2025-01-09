@@ -1,38 +1,19 @@
-2024-12-03T12:15:31.327+08:00  INFO 56416 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 21.0.5 with PID 56416 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
-2024-12-03T12:15:31.331+08:00  INFO 56416 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-12-03T12:15:34.158+08:00  INFO 56416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-12-03T12:15:34.159+08:00  INFO 56416 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.34] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
-2024-12-03T12:15:34.160+08:00  INFO 56416 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.34] using APR version [1.7.0].
-2024-12-03T12:15:34.162+08:00  INFO 56416 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
-2024-12-03T12:15:34.223+08:00  INFO 56416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-03T12:15:34.223+08:00  INFO 56416 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
-2024-12-03T12:15:34.615+08:00  INFO 56416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-03T12:15:34.615+08:00  INFO 56416 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3214 ms
-2024-12-03T12:15:35.599+08:00  INFO 56416 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-12-03T12:15:35.830+08:00  INFO 56416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-12-03T12:15:35.834+08:00  INFO 56416 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 5.189 seconds (process running for 6.169)
-2024-12-03T12:15:36.759+08:00  INFO 56416 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-03T12:15:36.759+08:00  INFO 56416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-03T12:15:36.760+08:00  INFO 56416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-12-03T12:15:36.800+08:00  WARN 56416 --- [http-nio-8080-exec-1] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.ddisearch.controller.BasicController
-2024-12-03T12:15:36.820+08:00  INFO 56416 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-03T12:15:36.997+08:00  INFO 56416 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66bdd506
-2024-12-03T12:15:36.998+08:00  INFO 56416 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-03T12:15:37.045+08:00  INFO 56416 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 238 ms, called 1 times.
-2024-12-03T12:15:44.628+08:00  INFO 56416 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 4 ms, called 1 times.
-2024-12-03T12:17:39.523+08:00  INFO 56416 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 5 ms, called 2 times.
-2024-12-03T13:42:12.893+08:00  INFO 56416 --- [http-nio-8080-exec-6] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 6 ms, called 3 times.
-2024-12-03T13:42:12.901+08:00  INFO 56416 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 4 ms, called 4 times.
-2024-12-03T13:42:20.610+08:00  INFO 56416 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 1 ms, called 2 times.
-2024-12-03T13:42:29.796+08:00  INFO 56416 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 5 ms, called 1 times.
-2024-12-03T13:42:29.801+08:00  INFO 56416 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDDISearch(..) executed in 2 ms, called 2 times.
-2024-12-03T13:42:37.192+08:00  INFO 56416 --- [http-nio-8080-exec-1] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 8 ms, called 1 times.
-2024-12-03T13:42:39.639+08:00  INFO 56416 --- [http-nio-8080-exec-2] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 5 ms, called 5 times.
-2024-12-03T13:42:39.647+08:00  INFO 56416 --- [http-nio-8080-exec-4] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 4 ms, called 6 times.
-2024-12-03T13:42:44.047+08:00  INFO 56416 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 1 ms, called 3 times.
-2024-12-03T13:45:08.855+08:00  INFO 56416 --- [http-nio-8080-exec-7] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 6 ms, called 7 times.
-2024-12-03T13:45:12.550+08:00  INFO 56416 --- [http-nio-8080-exec-8] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 6 ms, called 8 times.
-2024-12-03T13:45:12.557+08:00  INFO 56416 --- [http-nio-8080-exec-9] com.ddisearch.aspect.LoggingAspect       : BasicController.pagesDrugSearch(..) executed in 4 ms, called 9 times.
-2024-12-03T13:45:16.641+08:00  INFO 56416 --- [http-nio-8080-exec-10] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDrugSearch(..) executed in 1 ms, called 4 times.
-2024-12-03T14:43:40.607+08:00  INFO 56416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-03T14:43:40.609+08:00  INFO 56416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-09T12:06:40.881+08:00  INFO 35928 --- [main] com.ddisearch.DdiSearchApplication       : Starting DdiSearchApplication using Java 17.0.13 with PID 35928 (D:\Java\code\DDI-Search\target\classes started by CJK in D:\Java\code\DDI-Search)
+2025-01-09T12:06:40.888+08:00  INFO 35928 --- [main] com.ddisearch.DdiSearchApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-01-09T12:06:41.795+08:00 ERROR 35928 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.34]
+2025-01-09T12:06:42.115+08:00  INFO 35928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-01-09T12:06:42.121+08:00  INFO 35928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-09T12:06:42.126+08:00  INFO 35928 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2025-01-09T12:06:42.230+08:00  INFO 35928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-09T12:06:42.230+08:00  INFO 35928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1296 ms
+2025-01-09T12:06:42.861+08:00  INFO 35928 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-09T12:06:43.164+08:00  INFO 35928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-09T12:06:43.176+08:00  INFO 35928 --- [main] com.ddisearch.DdiSearchApplication       : Started DdiSearchApplication in 2.632 seconds (process running for 2.965)
+2025-01-09T12:06:58.642+08:00  INFO 35928 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-09T12:06:58.643+08:00  INFO 35928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-09T12:06:58.643+08:00  INFO 35928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-01-09T12:07:28.044+08:00  WARN 35928 --- [http-nio-8080-exec-3] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.ddisearch.controller.BasicController
+2025-01-09T12:07:28.059+08:00  INFO 35928 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-09T12:07:28.169+08:00  INFO 35928 --- [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b94c849
+2025-01-09T12:07:28.169+08:00  INFO 35928 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-09T12:07:28.202+08:00  INFO 35928 --- [http-nio-8080-exec-3] com.ddisearch.aspect.LoggingAspect       : BasicController.handleDDISearch(..) executed in 153 ms, called 1 times.

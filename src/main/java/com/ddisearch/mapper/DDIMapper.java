@@ -1,12 +1,10 @@
 package com.ddisearch.mapper;
 
+import java.util.ArrayList;
 import com.ddisearch.entity.DDI;
 import com.ddisearch.entity.batchDDIResult;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * @author Junkai Cheng
@@ -14,7 +12,6 @@ import java.util.Map;
  */
 @Mapper
 public interface DDIMapper {
-//    ArrayList<DDI> selectDDIByName(String drugAName, String drugBName);
     void batchInsertDDI(ArrayList<DDI> ddis);
     ArrayList<DDI> selectDDIByName(@Param("drugAName") String drugAName, @Param("drugBName") String drugBName);
     ArrayList<batchDDIResult> batchSelectDDI(@Param("offset") int offset, @Param("limit") int limit);

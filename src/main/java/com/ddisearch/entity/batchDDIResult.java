@@ -32,5 +32,4 @@ public class batchDDIResult {
     public void setDrugAName(String drugAName) {
         this.drugAName = drugAName;
     }
-// Getters and Setters
 }
